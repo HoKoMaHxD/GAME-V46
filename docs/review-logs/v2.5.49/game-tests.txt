@@ -1,0 +1,23 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> clan-quests-bot@2.5.49 test:games
+> node --test test/game-interactions.test.js test/xo.test.js test/button-game.test.js test/mines-game.test.js test/numbers-game.test.js test/dot-game.test.js test/memory-game.test.js test/mini-games.test.js test/boxes-game.test.js test/ship-game.test.js
+
+✔ test/boxes-game.test.js (1602.6649ms)
+✔ test/button-game.test.js (771.223842ms)
+✔ test/dot-game.test.js (1426.917648ms)
+✔ test/game-interactions.test.js (1255.556826ms)
+✔ test/memory-game.test.js (843.928891ms)
+✔ test/mines-game.test.js (822.133741ms)
+✔ test/mini-games.test.js (1021.187714ms)
+✔ test/numbers-game.test.js (808.175062ms)
+✔ test/ship-game.test.js (2348.062229ms)
+✔ test/xo.test.js (778.257785ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3193.844167

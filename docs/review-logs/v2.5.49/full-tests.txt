@@ -1,0 +1,1895 @@
+FILE activity-economy.test.js — EXIT 0
+✔ activity migration is repeatable and preserves old money, products, appearance and permissions (6.732861ms)
+✔ clan activity continues past a daily task cap; duplicates and edits never pay twice (71.817054ms)
+✔ chat ranking excludes other channels, bots, webhooks, system, outsiders and pre-activation messages (1.735357ms)
+✔ voice ranking spans three rooms after reward cap, disabled rewards and completed quests, without counting overlap (1.0291ms)
+✔ voice eligibility and disconnects continue to bound actual activity independently of currency (2.156591ms)
+✔ currency adjustments and purchases cannot affect either activity ranking (4.839259ms)
+✔ ranking is by messages or time only, ties and personal ordinal positions agree with every five-member page (43.67727ms)
+✔ five exact results disable next, and an empty leaderboard does not invent a personal rank (2.33176ms)
+✔ Saudi midnight divides observed activity by date while all-time totals remain cumulative (1.706944ms)
+✔ resetting one member clears only their currency, activity and current timed quest (3.446125ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.208209
+
+
+FILE auction-commands.test.js — EXIT 0
+✔ slash fields and realistic embeds fit Discord limits and only intended mentions are enabled (27.856461ms)
+✔ creation requires administration and uses the selected image, Saudi schedule and current channel (12.236381ms)
+✔ buttons and custom modal are routed through the main handler, respond privately and debit the submitted increment (13.059668ms)
+✔ a changed sum while typing is rejected, and another user cannot submit the same modal (4.041887ms)
+✔ forged message, wrong guild, former members and invalid amounts cannot bid (6.00619ms)
+✔ admin cancellation refunds while UI publication errors never claim a saved bid was rejected (8.77129ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.579865
+
+
+FILE auction-manager.test.js — EXIT 0
+✔ scheduled announcement is replaced at due time, exact role is pinged twice and winner is announced once (66.475937ms)
+✔ overdue scheduled auction after downtime receives a full five minutes from actual announcement (6.311478ms)
+✔ failed start send retries without an invisible auction clock or accepting a bid (8.540948ms)
+✔ recovery after a lost live send uses its original timestamp and does not reopen an expired auction (6.378018ms)
+✔ lost Discord upcoming acknowledgement recovers the same announcement after restart (2.869682ms)
+✔ lost Discord live acknowledgement recovers the same announcement after restart (4.085471ms)
+✔ lost Discord result acknowledgement recovers the same announcement after restart (6.904151ms)
+✔ lost database message-ID write recovers by footer without posting twice (2.475002ms)
+✔ due startup deletes an upcoming message even when its send acknowledgement was lost (4.695821ms)
+✔ ending commits despite Discord errors and retries publishing without recharging (9.165863ms)
+✔ role permissions, shutdown and scheduled cancellation behave before any bid is accepted (11.941295ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 147.85509
+
+
+FILE auction.test.js — EXIT 0
+✔ Saudi dates, Arabic digits and increments validate without host timezone dependence (3.114497ms)
+✔ opening, outbid refund and own increments reserve exactly the current winning bid (16.335029ms)
+✔ duplicate interactions are idempotent, low balances and ineligible users leave all money unchanged (27.933564ms)
+✔ competing simultaneous bids serialize and cannot overspend through the shop or another auction (4.704221ms)
+✔ last 15 seconds add 30 seconds per accepted late bid and reject every expired or stale custom bid (4.665503ms)
+✔ deadline is rechecked after a slow balance query, with no late charge (1.955712ms)
+✔ rejected bids never extend the deadline or exceed the amount limit (1.70532ms)
+✔ settlement after restart permanently consumes the hold exactly once and preserves winner/quantity (5.006675ms)
+✔ cancellation refunds, no-bid ending charges nobody, and resets cannot erase live holds (8.213843ms)
+✔ midnight does not lose holds or repeat the debit; refund keeps the original currency categories (4.606162ms)
+✔ outbid recovers money after before auction_journals.replaceOne #1 (3.385276ms)
+✔ outbid recovers money after after auction_journals.replaceOne #1 (3.384806ms)
+✔ outbid recovers money after before days.replaceOne #1 (3.814159ms)
+✔ outbid recovers money after after days.replaceOne #1 (11.07018ms)
+✔ outbid recovers money after before days.replaceOne #2 (2.901343ms)
+✔ outbid recovers money after after days.replaceOne #2 (3.837621ms)
+✔ outbid recovers money after before auction_events.updateOne #1 (3.11144ms)
+✔ outbid recovers money after after auction_events.updateOne #1 (3.021454ms)
+✔ outbid recovers money after before auctions.replaceOne #1 (3.630651ms)
+✔ outbid recovers money after after auctions.replaceOne #1 (3.634585ms)
+✔ outbid recovers money after before auction_journals.replaceOne #2 (3.651267ms)
+✔ outbid recovers money after after auction_journals.replaceOne #2 (3.146208ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 140.866529
+
+
+FILE auth.test.js — EXIT 0
+✔ normalization preserves opaque tokens and removes only surrounding copy syntax (5.128309ms)
+✔ invalid copy formatting and duplicated credentials fail without exposing their values (1.359571ms)
+✔ official mode does not require a reader token and selfbot mode retains acknowledgement (0.31747ms)
+✔ runtime configuration and diagnostics use the same normalized credentials (0.751054ms)
+✔ successful login identifies the client and removes temporary listeners (0.902492ms)
+✔ gateway rejection names observer and records an observed 4004 without leaking SDK details (0.769271ms)
+✔ disallowed intents, synchronous failures and timeouts remain distinct from token rejection (6.398625ms)
+✔ identity probes send credentials only to the fixed Discord endpoint with redirects disabled (39.096426ms)
+✔ HTTP 401, 403, 429 and server failures are classified separately with one request and no body logs (2.131065ms)
+✔ successful HTTP with wrong account type or malformed response does not report success (3.760892ms)
+✔ network and timeout errors never echo thrown request details (0.773019ms)
+✔ diagnosis runs without database config and reveals no credentials or identity fields (3.540592ms)
+✔ diagnosis aborts before requests on invalid config and does not continue past a block or rate limit (7.396936ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.67295
+
+
+FILE bank-commands.test.js — EXIT 0
+✔ bank commands are available in the clan and settings expose one channel and a configurable salary (13.617169ms)
+✔ وقت slash posts an owner-bound launcher without reading private timings (14.945024ms)
+✔ وقت text aliases use the author even when another member is mentioned (3.635114ms)
+✔ وقت refuses other channels, other guilds and bot accounts without reading member timings (1.885979ms)
+✔ prize slash command awards once, publishes the result and explains its six-hour cooldown (3.485747ms)
+✔ prize text aliases route to the bank for the author and return a public result (4.087074ms)
+✔ prize refuses other channels, other servers and bot accounts before awarding (1.197938ms)
+✔ existing bank commands work publicly for an ordinary clan-server member with no Arena reward role (8.331906ms)
+✔ switch-only settings save each command independently and اوامر keeps its reference wording (4.00717ms)
+✔ disabled slash and text commands report publicly and old robbery buttons cannot transfer money (6.578639ms)
+✔ text bank commands including balance reply publicly to the originating message (11.923223ms)
+✔ all five commands outside the bank return a public pointer without posting a panel, paying or creating a challenge (1.310034ms)
+✔ balance buttons and legacy points show only the clicking member balance and never create a daily quest record (4.310919ms)
+✔ bank configuration is management-only, works outside the bank and honors delegated role revocation (1.640023ms)
+✔ configuration validates destination type, server and send permissions and accepts zero salary explicitly (1.958ms)
+✔ default membership check validates the target in the clan guild and treats lookup failures as failures (0.766324ms)
+✔ a departed target or temporary membership lookup failure cannot start or settle robbery (3.181686ms)
+✔ bank embed follows the reference with the server icon, boxed balance and next-rank gap (1.124089ms)
+✔ salary card shows credit and balance in reference order, and cooldown still reports the next claim time (2.957354ms)
+✔ protection text shows confirmation without charging; only the author can confirm and retries debit once (4.58059ms)
+✔ protection slash command is management only and saves its settings without buying (1.492311ms)
+✔ protection refuses other channels, other servers and bots before debiting (0.978691ms)
+✔ protection confirmation disables at 30 seconds and a late click cannot debit (1.376186ms)
+✔ confirmation before 30 seconds succeeds and expiry cannot overwrite its success button (2.011918ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 111.068417
+
+
+FILE bank-live-views.test.js — EXIT 0
+✔ open ranking changes from reserved amount to final payout automatically (3.888137ms)
+✔ navigation replaces the tracked page and interaction instead of refreshing an old page (2.787741ms)
+✔ expired tokens are removed without attempting an edit (0.827278ms)
+✔ wallet change during read is not marked as already displayed (0.599281ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.598123
+
+
+FILE bank-menu.test.js — EXIT 0
+✔ bank launcher has one line and exact six-button order in valid rows (3.879712ms)
+✔ all six menu buttons open private views for the clicking member (30.854732ms)
+✔ game menu buttons start both games through the existing cooldown flow (46.091904ms)
+✔ menu rejects foreign guilds and wrong bank channels (2.654435ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.76947
+
+
+FILE bank.test.js — EXIT 0
+✔ bank configuration survives restart and salary amount changes preserve old challenges (8.397366ms)
+✔ invalid settings and lost acknowledgement cannot silently change bank configuration twice (3.698921ms)
+✔ legacy settings keep enabled commands while zero salaries and absent banks report unavailable (0.368215ms)
+✔ salary off/on persists without losing its amount, balance or one-hour cooldown and never disables robbery (14.044185ms)
+✔ disabling robbery blocks new and old buttons, survives restart and cannot revive old rounds after re-enabling (5.169465ms)
+✔ queued payouts wait for a switch change and cannot spend after both commands are disabled (5.768116ms)
+✔ bank service rejects unconfigured and wrong channels for all three commands before changing money (1.558802ms)
+✔ bank top aggregates current currency across days including quests, salary, robbery, purchases and admin changes (8.495308ms)
+✔ bank gap targets the immediately preceding member even outside the top ten, with stable ties (9.190594ms)
+✔ members inside the top ten see the next better rank while first place has no invented target (12.482113ms)
+✔ new and zero-balance members have no invented rank or activity-based bank balance (3.478773ms)
+✔ concurrent salary requests credit each member only once and leave activity and attendance caps unchanged (3.187366ms)
+✔ salary cooldown persists over Saudi midnight and restart and expires at exactly one hour (2.131472ms)
+✔ upgrade applies the one-hour interval to a saved six-hour salary receipt without resetting its last claim time (1.968935ms)
+✔ a changed or disabled salary never retroactively changes an existing claim or its cooldown (2.233844ms)
+✔ invalid, stale, foreign, departed and unverified salary claims cannot create credits (1.401933ms)
+✔ lost acknowledgement is verified from the salary receipt without paying again (1.498558ms)
+✔ an uncertain salary write stops further spending and restart resolves both committed and uncommitted cases (3.034758ms)
+✔ bank top and salary wait for both legs of a robbery and see a consistent balance (5.547557ms)
+✔ moving the bank channel cancels previous robbery buttons even if the channel is later restored (2.146445ms)
+✔ salary and configuration survive a regular new day, while an explicit member reset clears that member only (3.363982ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 110.107724
+
+
+FILE booster-salary.test.js — EXIT 0
+✔ booster salary includes both range endpoints and ordinary salary never performs a random draw (2.741982ms)
+✔ boost verification force-fetches the correct clan member and ignores role names and stale snapshots (1.220421ms)
+✔ verification failures and a departed member never silently downgrade to a normal salary (7.408634ms)
+✔ a booster receives 2000, the persisted job and one-hour cooldown with no ordinary salary added (5.178967ms)
+✔ a booster receives 3500, the persisted job and one-hour cooldown with no ordinary salary added (2.245388ms)
+✔ concurrent claims, duplicate delivery and restart keep a single random result and payment (5.373194ms)
+✔ starting or stopping boost does not reset the cooldown and affects the next successful claim (2.62153ms)
+✔ salary prize applies once on the booster base and appears in both the card and saved DM event (6.316245ms)
+✔ a lost salary-write acknowledgement preserves the booster amount and job without another draw (1.161202ms)
+✔ boosters obey bank disable switches and a lease lost during verification prevents payment (1.141599ms)
+✔ a boost check crossing midnight records the actual payment time and preserves the cooldown after restart (1.243598ms)
+✔ slash and text salary use the author’s fresh clan boost state, even if the cached state says otherwise (14.760599ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66.888348
+
+
+FILE boxes-game.test.js — EXIT 0
+✔ fourth edge captures a box despite all three earlier edges belonging to the opponent (1.989296ms)
+✔ one shared vertical edge closes two boxes and a shared horizontal edge does the same (0.296031ms)
+✔ bottom-right box is captured at the boundary without wrapping rows (0.229372ms)
+✔ invalid and occupied edges are rejected without mutating either array (0.396286ms)
+✔ only the invited opponent accepts; rejected and expired invitations never debit either wallet (13.788279ms)
+✔ self, bots, wrong room, invalid stakes and missing membership cannot open a challenge (1.962267ms)
+✔ insufficient funds on open or accept never charge the other player (2.546767ms)
+✔ turns alternate without a capture, capturing retains the turn and grants a fresh deadline (38.442185ms)
+✔ one move awards two adjacent boxes in a live round without giving up the turn (3.362138ms)
+✔ normal finish: all edges must be played and only the box majority determines payout (38.01732ms)
+✔ last mover is not the winner: all edges must be played and only the box majority determines payout (40.638153ms)
+✔ outsiders, copied messages, wrong turns, repeated lines and concurrent clicks cannot add moves (3.141987ms)
+✔ a capture cannot be replayed through rapid clicks while its new board is undelivered (4.04923ms)
+✔ 30-second turn timeout settles once when a click races the expiry worker (2.166727ms)
+✔ an undelivered board times out with refunds instead of player loss (12.829373ms)
+✔ restart retains the board, captured boxes, extra turn and deadline; changed bank cancels with refunds (3.373775ms)
+✔ loss of membership cancels a live game and refunds both stakes (2.547562ms)
+✔ interruption before wallet write during hold recovers exactly once (3.286826ms)
+✔ interruption before wallet write during payout recovers exactly once (7.033437ms)
+✔ interruption after wallet write during hold recovers exactly once (1.903821ms)
+✔ interruption after wallet write during payout recovers exactly once (19.358503ms)
+✔ reset protects active stakes and sending cooldown is independent and only applies to challenger (7.867192ms)
+✔ board provides exactly one button per numbered line, no more than five rows or buttons per row (50.549446ms)
+✔ slash registration, games menu and instructions include مربعات (10.331145ms)
+✔ text parser accepts مربعات <@100000000000000011> ١٠٠٠ (0.770395ms)
+✔ text parser accepts !مربعات <@!100000000000000011> 1000 (0.231299ms)
+✔ text parser accepts -مربعات <@100000000000000011> ۱۰۰۰ (0.068414ms)
+✔ text challenge binds its message; real handler accepts, plays, reports stale presses and blocks spectators (87.55549ms)
+✔ background manager disables timeout controls and inaccessible messages refund instead of hanging the stake (29.386458ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 396.893722
+
+
+FILE button-game.test.js — EXIT 0
+✔ 30-second consent deadline and both players minimum balances; rejection costs nothing (19.915157ms)
+✔ balance recheck cancels if 100000000000000010 spends before acceptance (4.052258ms)
+✔ balance recheck cancels if 100000000000000011 spends before acceptance (3.767164ms)
+✔ waiting has sixteen disabled gray buttons; reveal has exactly one green and fifteen red (17.285234ms)
+✔ first valid green click pays 100000000000000010 only once (8.51994ms)
+✔ first valid green click pays 100000000000000011 only once (10.067696ms)
+✔ simultaneous clicks produce one winner and preserve wallet sum (3.891983ms)
+✔ no click by 30-second boundary draws with no transfer; late click cannot win (3.217043ms)
+✔ restart preserves green selection and independent twenty-minute cooldown (5.762485ms)
+✔ interrupted payout before persists one winner and pays once (3.132258ms)
+✔ interrupted payout after persists one winner and pays once (5.724597ms)
+✔ bank reset blocked while money held, and changed bank cancels safely (6.544692ms)
+✔ text alias parses Arabic stake and manager reveals the public green board (6.232612ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 110.495849
+
+
+FILE challenger-cooldown.test.js — EXIT 0
+✔ xo: only outgoing challenges wait; incoming games neither block nor extend own cooldown (30.991626ms)
+✔ xo: incoming cooldown exemption does not allow overlapping active rounds (3.904875ms)
+✔ buttonGame: only outgoing challenges wait; incoming games neither block nor extend own cooldown (12.504907ms)
+✔ buttonGame: incoming cooldown exemption does not allow overlapping active rounds (3.978146ms)
+✔ minesGame: only outgoing challenges wait; incoming games neither block nor extend own cooldown (10.627214ms)
+✔ minesGame: incoming cooldown exemption does not allow overlapping active rounds (2.462588ms)
+✔ numbersGame: only outgoing challenges wait; incoming games neither block nor extend own cooldown (9.84133ms)
+✔ numbersGame: incoming cooldown exemption does not allow overlapping active rounds (7.813857ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 95.205353
+
+
+FILE command-times.test.js — EXIT 1
+✔ وقت reads a new member without assigning tasks, creating days or writing anything (11.025109ms)
+✔ salary and prize deadlines persist across midnight and restart and become ready at their exact boundaries (8.535207ms)
+✔ disabled commands and quest ineligibility are not shown as ready (4.248954ms)
+✔ protection reports the full stacked expiration and allows buying more while protected (7.836429ms)
+✖ robbery reports an open challenge and ignores expired or invalidated challenges (2.288713ms)
+✔ remaining time rounds up a partial second and public payloads never ping members (2.989373ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.279503
+
+✖ failing tests:
+
+test at test/command-times.test.js:70:1
+✖ robbery reports an open challenge and ignores expired or invalidated challenges (2.288713ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/src/service.js:430:95
+
+
+FILE commands.test.js — EXIT 0
+✔ all slash commands serialize with valid names and manageable options (26.409374ms)
+✔ administration is discoverable for delegated roles and guarded at runtime (10.039105ms)
+✔ maximum-size task embed fits Discord 6000-character limit (7.104825ms)
+✔ both installed client libraries initialize without logging in (43.835373ms)
+✔ source validation uses a permission bit compatible with both libraries (1.26151ms)
+✔ unauthorized admin command does not mutate state (12.107481ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.708339
+
+
+FILE daily-quests.test.js — EXIT 0
+✔ all six reference quests run together without requesting/accepting; all rewards total 31000 plus attendance (640.160949ms)
+✔ Saudi midnight clears unfinished progress, leaves the wallet intact and splits a voice interval exactly (55.002281ms)
+✔ upgrade archives active offers and task snapshots, preserving balances, activity, receipts and notification preferences (7.003123ms)
+✔ lost before-commit task acknowledgement never duplicates the reward or DM (4.383169ms)
+✔ lost after-commit task acknowledgement never duplicates the reward or DM (2.98115ms)
+✔ partial catalog installation resumes at the original boundary and ordinary restarts preserve later admin edits (2.175546ms)
+✔ daily warnings, completion and reset summaries use the final saved state; old quest alerts become obsolete (15.656297ms)
+✔ daily assignment snapshots keep their old observation channels after a catalog edit (2.113732ms)
+✔ unsafe task reward totals fail atomically without a progress commit or a false completion DM (3.191988ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 742.568733
+
+
+FILE daily-rewards.test.js — EXIT 0
+✔ live catalog installs all six requested prices and attendance settings for a new installation (11.389772ms)
+✔ upgrade reprices unpaid daily quests without resetting progress, altering prior awards or sending a false completion (22.43991ms)
+✔ raising the attendance cap preserves accrued partial minutes and only pays future observed time (4.891563ms)
+✔ historical days and custom tasks stay unchanged while later catalog edits survive restarts and new assignments (4.692791ms)
+✔ reward migration resumes after a before-write failure and keeps its original activation boundary (3.713949ms)
+✔ reward migration resumes after a after-write failure and keeps its original activation boundary (2.407012ms)
+✔ a before-commit lost day update cannot double-migrate or change wallet balances (3.182835ms)
+✔ a after-commit lost day update cannot double-migrate or change wallet balances (2.737358ms)
+✔ late durable game proofs from a prior Saudi day keep the pre-upgrade reward even when their ledger is first created after upgrade (5.285502ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 76.283721
+
+
+FILE daily-views.test.js — EXIT 0
+✔ all bank participants have stable positions across pages, including zeros; stale pages clamp after reset (41.23187ms)
+✔ shared bank button opens a private result anywhere in the clan; pagination is owner-bound and read-only (4.184791ms)
+✔ مهامي, مهمتي and old quest buttons show all daily tasks without acceptance; owners and guilds remain enforced (31.560895ms)
+✔ Arabic text aliases resolve مهامي and توب البنك into the same registered commands (2.331771ms)
+✔ public daily card updates on progress and Saudi midnight, survives restart, and cleans up deleted messages (20.118001ms)
+✔ a legacy private daily card expires before its webhook and re-arms when refreshed (8.172005ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.549332
+
+
+FILE domain.test.js — EXIT 0
+✔ Riyadh date flips exactly at 21:00 UTC (1.445381ms)
+✔ week and month boundaries are calendar-based, including year rollover (0.303309ms)
+✔ voice interval is split without losing or duplicating milliseconds (0.883808ms)
+✔ exactly four unique daily tasks, stable after reopening (8.282352ms)
+✔ personal assignment and progress are isolated between users (0.876394ms)
+✔ targeted templates have priority but never leak to another member (0.358496ms)
+✔ disabled templates are excluded, existing snapshots remain unchanged (0.188497ms)
+✔ a completed mission credits points exactly once and caps progress (0.458016ms)
+✔ repeat limit grants each completion once (0.361339ms)
+✔ duplicate gateway message ids do not double count (0.281773ms)
+✔ distinct messages count without text deduplication or a cooldown (0.17127ms)
+✔ symbols and short messages count while unrelated channels do not (0.256975ms)
+✔ one event advances all matching assigned tasks, no unrelated task (0.220465ms)
+✔ voice progress and attendance points are independent (0.284815ms)
+✔ overlapping/replayed voice intervals cannot duplicate rewards (0.111406ms)
+✔ attendance daily cap is enforced, including non-multiple cap (0.19057ms)
+✔ changing attendance rate cannot reprice already credited history (0.228147ms)
+✔ disabled attendance and other voice channels still allow matching voice quests (0.132363ms)
+✔ voice eligibility respects membership, bots, AFK, deaf, mute and human count (0.258352ms)
+✔ template input validation rejects invalid or excessive settings (0.540179ms)
+✔ service ignores other servers, bots, outsiders, old/future events (0.715108ms)
+✔ daily renewal creates a new independent record, keeps previous points (1.115004ms)
+✔ restarting service retains assignment, progress and attendance fraction (0.738048ms)
+✔ voice straddling midnight is allocated to the correct day (0.542952ms)
+✔ voice tracker accounts join/leave exactly and never credits disconnected gaps (0.882949ms)
+✔ voice move does not credit time in the old room after transition (0.368951ms)
+✔ a stalled event loop interval over 60 seconds is discarded (0.173854ms)
+✔ voice persistence failure retries all observed time on the next snapshot (2.026596ms)
+✔ disconnect while a flush is pending cannot restore the stale voice snapshot (6.07376ms)
+✔ explicit risk acknowledgement and valid environment are required (1.374009ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 45.096771
+
+
+FILE dot-game.test.js — EXIT 0
+✔ gravity places pieces at the bottom and full or invalid columns cannot change the board (3.418766ms)
+✔ four horizontal wins and three does not (1.029812ms)
+✔ four vertical wins and three does not (0.525313ms)
+✔ four down-right wins and three does not (1.530691ms)
+✔ four down-left wins and three does not (2.454457ms)
+✔ row wrapping does not count as a connected line (1.124594ms)
+✔ both balances and target consent are required, invitation times out without taking money (18.269932ms)
+✔ insufficient funds at opening or acceptance never make balances negative (5.832917ms)
+✔ horizontal winning sequence pays exactly once and every next turn has 30 seconds (60.999046ms)
+✔ outsiders, wrong turns, stale and concurrent clicks cannot play another move (5.04889ms)
+✔ full board without four refunds both stakes exactly once (6.39736ms)
+✔ late turn at exactly 30 seconds loses once even when timer races with click (5.236994ms)
+✔ undelivered boards refund instead of charging a technical timeout (5.25671ms)
+✔ full column is disabled, live embed mentions the current player and updates attachment names (46.170773ms)
+✔ interrupted payout before is recovered without duplicate credit (6.212162ms)
+✔ interrupted payout after is recovered without duplicate credit (9.880546ms)
+✔ restart retains board, turn and deadline and changed bank cancels with refund (3.587448ms)
+✔ dot slash and text command route target and Arabic stake correctly (4.94746ms)
+✔ background manager settles and edits a timed-out game with disabled columns (45.477704ms)
+✔ held stakes cannot be reset and only the challenger receives the twenty-minute sending cooldown (7.213035ms)
+✔ text invitation binds its message and button handlers edit it with the board and deny spectators (83.606654ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 339.657976
+
+
+FILE experience-commands.test.js — EXIT 0
+✔ rank commands publish one combined button; currency and upcoming commands register in the clan (27.698864ms)
+✔ personal rank button returns only the clicking member ranks and five leaders per category privately (13.950744ms)
+✔ next/previous and period controls work in a fresh handler, ownership and guild guards reject cross-use (3.081409ms)
+✔ commands and personal-rank text triggers post two distinct reusable public messages (3.77721ms)
+✔ rank publishing is management-only for both slash aliases and checks delegated permission changes (5.215948ms)
+✔ spaced text publishing denies regular users and accepts all exact rank aliases for administrators (4.022135ms)
+✔ every member can click the shared button and receives their own ephemeral ranks without publishing permission (2.090766ms)
+✔ legacy public leaderboard controls open private combined ranks and never edit the shared board (6.372748ms)
+✔ bank top and salary require bank setup and report publicly without modifying money (0.855161ms)
+✔ unified currency administration uses the total wallet and retains existing role authorization (2.383075ms)
+✔ new embeds and controls retain intended branding and fit Discord limits (3.497569ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.870398
+
+
+FILE financial-log.test.js — EXIT 0
+✔ task payout logs wallet delta and boost without replaying old receipts (1.475642ms)
+✔ equal net change still records component transfer and zero result receipt (0.417851ms)
+✔ staged event shares day write and archival is idempotent (0.811897ms)
+✔ delivery recovers existing Discord message after acknowledgment failure (0.704466ms)
+✔ full reset recreation cannot reuse an archived financial ID (0.545477ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26.671493
+
+
+FILE game-interactions.test.js — EXIT 0
+✔ a slow background edit cannot overwrite a newer dice result or delay its acknowledgement (30.830437ms)
+✔ starting an open solo game again links to its original message instead of moving the buttons (2.254707ms)
+✔ dice: an old copied message cannot steal the live round (2.049953ms)
+✔ memory: an old copied message cannot steal the live round (2.86065ms)
+✔ rapid memory presses consume one card and explain a rejected stale press (5.214925ms)
+✔ a transient memory edit failure is retried and unmatched cards become playable again (5.213559ms)
+✔ one stalled Discord message cannot block other memory boards or the next expiry tick (6.097334ms)
+✔ xo: a stale button refreshes the board without spending a move or changing balances (6.138101ms)
+✔ xo: slow membership lookup does not hold the shared economy queue (3.647172ms)
+✔ button-game: a stale button refreshes the board without spending a move or changing balances (6.918286ms)
+✔ button-game: slow membership lookup does not hold the shared economy queue (7.837113ms)
+✔ mines: a stale button refreshes the board without spending a move or changing balances (4.142291ms)
+✔ mines: slow membership lookup does not hold the shared economy queue (2.032587ms)
+✔ numbers: a stale button refreshes the board without spending a move or changing balances (3.572892ms)
+✔ numbers: slow membership lookup does not hold the shared economy queue (1.969208ms)
+✔ dot: a stale button refreshes the board without spending a move or changing balances (32.274258ms)
+✔ dot: slow membership lookup does not hold the shared economy queue (2.855581ms)
+✔ boxes: a stale button refreshes the board without spending a move or changing balances (35.71053ms)
+✔ boxes: slow membership lookup does not hold the shared economy queue (4.051124ms)
+✔ a queued background XO snapshot is skipped after the player already displayed that revision (3.568769ms)
+✔ a button recovers the message binding after the initial send succeeded but binding failed (6.275013ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 184.543224
+
+
+FILE games.test.js — EXIT 0
+✔ all games use the same trusted elimination proof; an actor mention is not credited (9.702581ms)
+✔ role mentions, ordinary turns, registration expulsions and withdrawals do not qualify (1.994898ms)
+✔ winner requires the quoted dash mention, an image and absence of interactive components (1.216571ms)
+✔ winner lists and supported embed text preserve exact member IDs without name/OCR matching (0.448118ms)
+✔ raw partial updates preserve omitted buttons and recognize their explicit removal (0.866829ms)
+✔ an uncached update reads only that message and never assumes absent buttons mean empty (1.441604ms)
+✔ old creates, malformed dates and future events cannot become new games (0.521293ms)
+✔ SDK hydration accepts both library message types and maps image/component metadata (0.745621ms)
+✔ a new games template does not backfill pre-creation proofs and keeps a selected reward immutable (3.152046ms)
+✔ personal game template wins its own slot without displacing targeted non-game tasks (0.90696ms)
+✔ games validation enforces one reward per day and disallows message/voice-only conditions (0.775469ms)
+✔ games bot/channel default to the supplied IDs and overrides require valid IDs (1.789801ms)
+✔ archived game templates retain channel validation and cannot promise automatic participation rewards (39.940194ms)
+✔ confirmed withdrawal identifies the withdrawing member only, including formatted mentions (0.625493ms)
+✔ explicit registration withdrawal and ambiguous terminal notices do not qualify (0.281497ms)
+✔ registration needs a participant counter and an enabled join button from the trusted source (1.689579ms)
+✔ participant counters in embed fields or button labels support Arabic numerals without awarding the list (0.537764ms)
+✔ counter updates retain the registration creation time and stale cards cannot create fresh boundaries (0.453683ms)
+✔ participant counts and list mentions never increment any member quest (2.741714ms)
+✔ terminal game notices credit only the explicitly mentioned victim (0.960965ms)
+✔ explicit winners heading accepts one or several mentions without requiring an image (2.983765ms)
+✔ winners heading in embed titles, descriptions and field names preserves list boundaries (1.171538ms)
+✔ winner lists reject roles, instructions, interactive cards and ambiguous mixed outcomes (0.404103ms)
+✔ the default wins the games slot without removing custom templates; disabling it restores custom selection (0.59446ms)
+✔ chairs elimination message credits both members joined by Arabic waw (0.516575ms)
+✔ group victims support connected waw, Arabic/English commas, whitespace and formatted mentions (3.592895ms)
+✔ group terminal lists stop before an actor or survivor and ignore role/channel mentions (1.388612ms)
+✔ several group notices within one message retain all victims but deduplicate repeated member IDs (0.250251ms)
+✔ mafia detective murder is a valid participation proof for every victim in its list (0.187377ms)
+✔ quoted winner image credits every winner on the same line (0.244486ms)
+✔ every supported outcome extracts one, two, five or twenty exact user IDs from text and embeds (17.296481ms)
+✔ all outcome lists deduplicate members and stop before later actor, survivor or host mentions (0.952607ms)
+✔ detective, found-member and group winner proofs require the trusted source and winning image conditions (0.455334ms)
+✔ found-member notices accept formatted mention lists and exclude unrelated or negated notices (0.294651ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 119.123016
+
+
+FILE infinite-xo.test.js — EXIT 0
+✔ fourth mark removes own oldest and cannot win using a vanished mark (2.473888ms)
+✔ line remaining after oldest disappears wins; occupied oldest cannot be selected early (0.722664ms)
+✔ new game persists FIFO queues across restart and keeps original 3x3 design (41.250848ms)
+✔ infinite winning payout is conserved and duplicate final click never pays twice (14.848269ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.822302
+
+
+FILE member-notifications.test.js — EXIT 1
+✔ preferences default on; per-member toggles are persistent, idempotent and survive reset/restart (12.102572ms)
+✔ notification button toggles only the clicker and replies privately without editing the public panel (7.953691ms)
+✔ salary and prize receipts and readiness notify once through retries and restart without paying again (22.79141ms)
+✔ a new salary claim invalidates the previous ready reminder and disabled salary does not starve prize alerts (9.565264ms)
+✔ opt-out suppresses all due alerts; re-enabling never replays muted history but preserves future timers (9.463681ms)
+✔ DM-closed members keep their preferences and money, and failures do not affect other members (5.688639ms)
+✔ ambiguous network acknowledgement recovers the existing DM after restart without duplicates (4.242915ms)
+✔ ambiguous database acknowledgement recovers the existing DM after restart without duplicates (4.644765ms)
+✔ known failed sends back off then recover, and incomplete history never causes a blind duplicate retry (8.727499ms)
+✔ event staging shares the salary commit and outbox materialization can be retried safely (6.031149ms)
+✔ robbery win with target balance 10000 alerts both sides, including zero transfers (8.771313ms)
+✔ robbery loss with target balance 10000 alerts both sides, including zero transfers (4.903378ms)
+✔ robbery tie with target balance 10000 alerts both sides, including zero transfers (4.256721ms)
+✔ robbery tie with target balance 20000 alerts both sides, including zero transfers (9.67239ms)
+✔ robbery win with target balance 0 alerts both sides, including zero transfers (4.346505ms)
+✖ a target's 15-minute failed-robbery shield sends its expiry DM, attacker balance 0 (1.784264ms)
+✔ a target's 15-minute failed-robbery shield sends its expiry DM, attacker balance 1000 (6.408398ms)
+✔ stacked protection only reports its final expiration and preserves the paid duration across restart (7.163135ms)
+✔ downtime spanning several superseded shields still produces one final protection expiry (4.817204ms)
+✔ losing the worker lease stops notification collection and sending (1.543998ms)
+✔ store purchases, administrative balance changes and scoped resets notify without altering financial outcomes (8.086675ms)
+✔ auction start, outbid refund and winner notifications use committed outcomes (11.754403ms)
+✔ auction start, outbid refund and cancellation notifications use committed outcomes (7.673977ms)
+✔ first upgrade schedules only future existing timers, without sending historical receipts (13.578721ms)
+✔ no-mutual-guild DM failures are finalized without error logs or retry loops (3.294969ms)
+✔ missing members, lost readiness and expired reminders never cause DMs or change earned balances (2.400944ms)
+✔ opting out waits for an in-flight send, then prevents any later notification (2.480424ms)
+✔ DM payloads escape member-controlled content and fit Discord limits (0.649541ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 27
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 207.286407
+
+✖ failing tests:
+
+test at test/member-notifications.test.js:196:32
+✖ a target's 15-minute failed-robbery shield sends its expiry DM, attacker balance 0 (1.784264ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/src/service.js:430:95
+
+
+FILE membership.test.js — EXIT 0
+✔ Arena role qualifies a clan member when the official bot cannot access Arena (2.514646ms)
+✔ a clan-server role cannot replace the required Arena role (0.633895ms)
+✔ official mode can use one client for both guilds with the Arena role (0.386002ms)
+✔ role validation reports Arena and does not fall back to a role in the clan guild (0.969903ms)
+✔ only human clan members with the Arena role qualify; missing Arena members are excluded (1.396336ms)
+✔ empty role keeps all human clan members eligible without fetching Arena members (0.460585ms)
+✔ Arena member fetches stay scoped to clan IDs in batches of at most 100 (1.466631ms)
+✔ Arena role changes grant and revoke eligibility; clan roles and other guilds do not (0.892904ms)
+✔ leaving either required guild stops eligibility even with a cached role (0.533229ms)
+✔ only deletion of the configured role from Arena invalidates tracking (0.762723ms)
+✔ live role removal and clan leave during a fetch override an older snapshot (0.54425ms)
+✔ a disconnect during member loading cannot make the stale result ready (0.389201ms)
+✔ failed Arena member lookup cannot retain eligibility from the previous connection (0.485522ms)
+✔ overlapping reloads share the same member request (0.307655ms)
+✔ a new clan member gets a targeted Arena lookup without pausing other members (0.419352ms)
+✔ a live role withdrawal during a single-member lookup cannot be undone by the response (0.279086ms)
+✔ voice credit stops at Arena role removal and resumes only after the role returns (1.569568ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.019653
+
+
+FILE memory-game.test.js — EXIT 0
+✔ 16 shuffled cards contain exactly two of each of the eight emojis (2.131773ms)
+✔ hidden card payload never contains the emoji, pair index or full board (14.453859ms)
+✔ matching cards stay revealed, attempts count pairs only, win pays once even with repeated requests (21.086526ms)
+✔ mismatch reveals for two seconds after delivery, blocks third card then hides without shuffling (4.87542ms)
+✔ twelve wrong pairs debit the percentage once (22.613415ms)
+✔ each valid flip renews 30 seconds; same card or stale version cannot buy more time (3.868712ms)
+✔ concurrent presses and retries reveal at most one card per version (3.64054ms)
+✔ cooldown survives a restart and cannot be bypassed by starting another round (4.213716ms)
+✔ restart during mismatch retains hidden layout and finishes the reveal phase (8.46828ms)
+✔ wrong channel or member cannot use a game, and moving the bank cancels it without reward (2.780262ms)
+✔ new games require a positive balance (1.06899ms)
+✔ undelivered board never awards money or an inactivity result (1.465959ms)
+✔ reward write failure before cannot duplicate the prize (5.963089ms)
+✔ reward write failure after cannot duplicate the prize (8.836927ms)
+✔ text command routes and the button handler denies other users before updating the game (3.420766ms)
+✔ background worker hides unmatched cards and edits the same message (3.18615ms)
+✔ percentage uses the balance at settlement and survives restart (1.645915ms)
+✔ legacy open rounds keep their fixed reward and no loss debit (9.995058ms)
+✔ random level سهل is shown and persists through retries and restart (1.345429ms)
+✔ سهل permits a win on the final attempt (32.011656ms)
+✔ random level متوسط is shown and persists through retries and restart (1.36813ms)
+✔ متوسط permits a win on the final attempt (14.41086ms)
+✔ random level صعب is shown and persists through retries and restart (1.299639ms)
+✔ صعب permits a win on the final attempt (8.83863ms)
+✔ invalid random level cannot open a round (0.613798ms)
+✔ rounds predating levels retain their sixteen attempts (1.268737ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 194.635652
+
+
+FILE message-counting.test.js — EXIT 0
+✔ Arena clan text ID is required and distinct while obsolete filtering variables remain ignored (4.435927ms)
+✔ fifty general messages and fifty clan messages complete two independent daily quests (7.74646ms)
+✔ every message counter uses its own channel including mention and media quests (0.741326ms)
+✔ out-of-order unique messages count exactly once in their assigned chat and after JSON persistence (0.725259ms)
+✔ short text, repeated text, emoji, stickers and attachments do not require readable content (1.198522ms)
+✔ system, webhook and bot messages are excluded in both SDK representations (1.290979ms)
+✔ a 200-message burst is serialized per member without losing writes to revision contention (275.954913ms)
+✔ slow writes do not turn messages received on time into stale messages while queued (8.457473ms)
+✔ a busy member does not block another member and a failed write does not wedge the queue (2.297799ms)
+✔ legacy progress and old anti-spam data survive; only new messages use the new counting policy (1.031161ms)
+✔ one message may advance an ordinary quest then its delayed media quest without duplicate ordinary credit (0.5358ms)
+✔ receipt eviction keeps boundary messages deduplicated and rejects older replays (0.41923ms)
+✔ late messages around Saudi midnight belong to their original day without affecting the new day (1.775569ms)
+✔ quest view shows separate room links, targets and progress for the two chat tasks (6.314875ms)
+✔ bot status checks the configured Arena clan text chat and displays both counter channels (11.865619ms)
+✔ a concurrent mixed-channel burst preserves separate receipts and awards each 50-message task once (186.369298ms)
+✔ Saudi midnight renews both chat tasks independently while preserving yesterday rewards (26.791741ms)
+✔ split chat tasks retain both slots when extra personal or general templates are present (0.907616ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 555.85066
+
+
+FILE migration.test.js — EXIT 0
+✔ catalog replacement requires the active worker lease (3.888796ms)
+✔ migration replaces old and custom templates with the exact four defaults even if already seeded (2.037708ms)
+✔ restarts do not reinstall the set, overwrite later edits, or change activation time (0.947616ms)
+✔ an interrupted migration resumes without publishing a partial set or duplicating templates (1.107263ms)
+✔ installing the daily 5-game quest preserves the base catalog, custom tasks, settings and balances (2.23765ms)
+✔ daily game installation requires both the worker lease and initialized base catalog (0.888007ms)
+✔ game installation resumes after failure before template write or final publication without duplicates (1.760107ms)
+✔ ordinary restarts do not overwrite later game admin edits or activation timestamps (1.361833ms)
+✔ chat split installs exactly two independent templates and retains all other templates, settings and days (2.228483ms)
+✔ chat split requires an active lease, a initialized base set and two valid distinct room IDs (0.973743ms)
+✔ chat installation resumes every partial-write stage without duplicates or a changed activation time (3.188773ms)
+✔ restarting after chat split does not reinstall old chat or overwrite later administrator edits (1.280743ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.310934
+
+
+FILE mines-game.test.js — EXIT 0
+✔ invitation checks both funds, needs target consent and cancels at exactly thirty seconds (13.879395ms)
+✔ acceptance rechecks available funds of 100000000000000010 (2.097189ms)
+✔ acceptance rechecks available funds of 100000000000000011 (2.742888ms)
+✔ mine remains hidden in all live payloads and starting player is a participant (6.312974ms)
+✔ mine 1 stays fixed; eight safe picks alternate and final pick loses once (8.660825ms)
+✔ mine 2 stays fixed; eight safe picks alternate and final pick loses once (5.556986ms)
+✔ mine 3 stays fixed; eight safe picks alternate and final pick loses once (5.868124ms)
+✔ mine 4 stays fixed; eight safe picks alternate and final pick loses once (10.265705ms)
+✔ mine 5 stays fixed; eight safe picks alternate and final pick loses once (6.212579ms)
+✔ mine 6 stays fixed; eight safe picks alternate and final pick loses once (8.50944ms)
+✔ mine 7 stays fixed; eight safe picks alternate and final pick loses once (9.01602ms)
+✔ mine 8 stays fixed; eight safe picks alternate and final pick loses once (4.360233ms)
+✔ mine 9 stays fixed; eight safe picks alternate and final pick loses once (4.529887ms)
+✔ wrong turns, spectators, repeated cells and stale board clicks cannot choose twice (2.740534ms)
+✔ late click and timer racing at thirty seconds lose the turn without another selection (3.667629ms)
+✔ new safe choice grants thirty seconds; restart retains the mine, turn and picks (2.132117ms)
+✔ interrupted mine payout before recovers only once (2.623918ms)
+✔ interrupted mine payout after recovers only once (2.741244ms)
+✔ rejection, cancellation and draw refund without profit; bank reset cannot erase held funds (6.53487ms)
+✔ text command, private help, public mine board and deleted-message refund (6.870538ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.492412
+
+
+FILE mini-games.test.js — EXIT 0
+✔ money percent bounds include 5 and 10, uses integer rounding and separate source buckets (2.166674ms)
+✔ flood changes only the connected top-left area and never wraps between rows (0.353366ms)
+✔ dice win settles once using CURRENT total (8.798005ms)
+✔ dice loss settles once using CURRENT total (2.501411ms)
+✔ dice tie settles once using CURRENT total (1.944168ms)
+✔ separate persistent cooldowns survive midnight and restart; exact 20m boundary permits new round (5.228204ms)
+✔ duplicate commands and concurrent double clicks neither reroll nor pay twice (2.459792ms)
+✔ colors joins neighboring regions, ignores unchanged/stale choices and can win on final move (3.398032ms)
+✔ colors remaining nonuniform at move 17 loses; stale double click does not spend another move (5.629022ms)
+✔ timeout after delivered round loses once after restart, undelivered round cancels without debit (5.376833ms)
+✔ bank reset or moving bank channel cancels active game without reviving old balance (3.952133ms)
+✔ committed write with lost acknowledgement returns saved result without duplicate debit (1.859766ms)
+✔ buttons bind owner/channel; foreign user cannot roll and cooldown is visible in وقت (4.562316ms)
+✔ text aliases route to games; public result disables controls and display failure cannot change wallet (4.038519ms)
+✔ adaptive color budgets come from a valid solution plus 1–3 moves for each generated board (345.616323ms)
+✔ a failed pre-commit settlement blocks writes, restart permits a single settlement (1.300338ms)
+✔ actual game command sends a usable round and persists the delivered message (3.15848ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 414.174922
+
+
+FILE numbers-game.test.js — EXIT 0
+✔ one and two consume consecutive numbers and each player owns a distinct board color (24.403079ms)
+✔ ones reaches fifteen and the player taking it loses once (16.700389ms)
+✔ twos reaches fifteen and the player taking it loses once (9.688004ms)
+✔ taking two from thirteen includes fifteen and loses (6.220318ms)
+✔ target alone can consent, both balances are rechecked and invitation expires at thirty seconds (9.678168ms)
+✔ wrong player, invalid input, spectators and simultaneous stale picks do not advance twice (5.016801ms)
+✔ restart keeps colors/count; exact turn deadline loses once despite timer/click race (5.433995ms)
+✔ payout interruption recovers once and held funds prevent bank reset (13.303146ms)
+✔ draw refunds; cooldown independent and available exactly after twenty minutes (4.381948ms)
+✔ text command, menu row limits and manager render the complete colored board (8.159186ms)
+✔ last number 15 stays fixed and loses with legal Discord layout (6.983823ms)
+✔ last number 16 stays fixed and loses with legal Discord layout (7.686172ms)
+✔ last number 17 stays fixed and loses with legal Discord layout (6.969268ms)
+✔ last number 18 stays fixed and loses with legal Discord layout (8.925522ms)
+✔ last number 19 stays fixed and loses with legal Discord layout (8.215962ms)
+✔ last number 20 stays fixed and loses with legal Discord layout (13.287255ms)
+✔ last number 21 stays fixed and loses with legal Discord layout (20.195827ms)
+✔ last number 22 stays fixed and loses with legal Discord layout (5.336239ms)
+✔ last number 23 stays fixed and loses with legal Discord layout (6.034492ms)
+✔ last number 24 stays fixed and loses with legal Discord layout (5.866144ms)
+✔ last number 25 stays fixed and loses with legal Discord layout (5.373707ms)
+✔ hidden endpoint cannot be inferred from invitation, rejection or unaccepted expiry payload (3.301771ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 213.199405
+
+
+FILE panel.test.js — EXIT 0
+✔ setup text accepts default, custom and Arabic minutes (3.993373ms)
+✔ setup panel matches the rank message with rank and notification buttons and no former task buttons (7.346968ms)
+✔ setup persists channel, message and custom schedule (2.454969ms)
+✔ due timer replaces one panel and does not resend early (2.666664ms)
+✔ restarted manager retains schedule and restores one overdue panel (1.984427ms)
+✔ manually deleted panel is restored without waiting for its deadline (2.045468ms)
+✔ send failure keeps the previous usable panel and saved reference (1.903208ms)
+✔ failed database save rolls back only the newly sent panel (1.558361ms)
+✔ uncertain database acknowledgement does not delete a committed replacement (1.626755ms)
+✔ failed old-message deletion is retried and cannot multiply panels indefinitely (2.816895ms)
+✔ simultaneous timer invocations cannot post duplicate replacements (1.528086ms)
+✔ setup moves the single panel to another clan text channel (1.433745ms)
+✔ invalid channel, permissions and periods cannot post a panel (0.600302ms)
+✔ cleanup refuses to delete another author or unrelated bot message (0.690988ms)
+✔ loss of active-worker permission stops scheduled posts (0.60499ms)
+✔ empty setup state is idle instead of creating unsolicited panels (0.24598ms)
+✔ appearance edit changes the current panel without reposting or resetting its schedule (1.437075ms)
+✔ new manager upgrades the old panel layout and retries an appearance edit after a permission failure (3.104482ms)
+✔ appearance refresh cannot edit another author or unrelated message and an unset panel stays idle (0.881152ms)
+✔ text setup ignores outsiders, bots and non-admins (0.715941ms)
+✔ shared my-tasks button displays the clicking member without modifying the panel (8.541306ms)
+✔ current and legacy top buttons request activity metrics and display private period controls (12.749216ms)
+✔ period and pagination controls survive a fresh handler with no collector state (0.641265ms)
+✔ another member cannot edit someone else’s leaderboard response (0.231885ms)
+✔ non-clan member cannot use the public my-tasks button to bypass role eligibility (0.361441ms)
+✔ malformed top routes and out-of-range pages are ignored (0.191945ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 77.195452
+
+
+FILE permissions.test.js — EXIT 0
+✔ native privileges and clan role authorize management; permission delegation stays owner/Administrator only (3.08179ms)
+✔ registered administrative commands are invokable by a delegated role; /صلاحية retains Administrator default (19.04465ms)
+✔ role setting is durable, changes immediately, is clan scoped and survives member/clan reset (13.710372ms)
+✔ permission command supports setting, viewing and removing, with private replies and no role ping (12.194026ms)
+✔ permission command rejects delegated roles, Manage Guild alone, DMs, foreign guilds and invalid role selections (3.100917ms)
+✔ serialized updates and late duplicate interactions cannot restore a superseded role (2.089904ms)
+✔ permission write failure never grants an unconfirmed role (1.671633ms)
+✔ permission write lost acknowledgement never grants an unconfirmed role (1.223035ms)
+✔ unverifiable permission write drops delegated access until a confirmed read; native administrators can recover (2.199718ms)
+✔ an old write delayed across a worker handoff cannot overwrite a newer saved role (1.953535ms)
+✔ delegated role can execute اضافة_نقاط; an ordinary member cannot (7.654612ms)
+✔ delegated role can execute ازالة_نقاط; an ordinary member cannot (2.245438ms)
+✔ delegated role can execute ريست_الجميع; an ordinary member cannot (7.703946ms)
+✔ delegated role can execute ريست_عضو; an ordinary member cannot (3.434996ms)
+✔ delegated role can execute setup; an ordinary member cannot (1.528288ms)
+✔ delegated role can execute حالة_البوت; an ordinary member cannot (2.584758ms)
+✔ delegated role can execute تصميم_الامبد; an ordinary member cannot (2.656305ms)
+✔ delegated role can execute اعدادات_الحضور; an ordinary member cannot (1.64612ms)
+✔ delegated role can execute ادارة_المهام اضافة; an ordinary member cannot (1.664012ms)
+✔ delegated role can execute ادارة_المهام اضافة_مهمة_خاصة; an ordinary member cannot (2.6863ms)
+✔ delegated role can execute اضافة_منتج; an ordinary member cannot (1.792539ms)
+✔ delegated role can execute ازالة_منتج; an ordinary member cannot (1.583863ms)
+✔ delegated role can execute اعدادات_المتجر; an ordinary member cannot (1.489834ms)
+✔ revoking the configured role or removing it from a member prevents an old reset confirmation (9.471578ms)
+✔ text setup uses the same delegated role and revocation; delegation does not bypass clan purchase membership (1.763375ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.75174
+
+
+FILE point-commands.test.js — EXIT 0
+✔ add/remove point commands require management permission, target and a positive bounded integer (14.802258ms)
+✔ non-admins, DMs and another guild cannot modify points or receive an administrative preview (8.516845ms)
+✔ default addition is private, targets the selected member and uses the Discord interaction ID and creation time (3.480931ms)
+✔ voice subtraction preserves the reason and only changes the selected member/category (1.488918ms)
+✔ additions require a human eligible clan member; historic deductions are allowed for a former member (0.968038ms)
+✔ reasons cannot trigger mentions or break the embed formatting (1.193925ms)
+✔ insufficient balance and uncertain writes never show a success result (0.824961ms)
+✔ a reply failure after a successful commit does not repeat the adjustment or claim the commit failed (1.327059ms)
+✔ duplicate-operation responses identify the stored result without another credit (1.735478ms)
+✔ member embeds include signed adjustments while the voice progress meter uses earned points only (4.511369ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.776514
+
+
+FILE positive-balance.test.js — EXIT 0
+✔ robbery rejects initiating with 0 without creating a round (7.064446ms)
+✔ robbery rejects initiating with -100 without creating a round (1.58613ms)
+✔ xo rejects empty wallets and nonpositive stakes for both sides (8.226598ms)
+✔ buttonGame rejects empty wallets and nonpositive stakes for both sides (4.984252ms)
+✔ minesGame rejects empty wallets and nonpositive stakes for both sides (5.922338ms)
+✔ numbersGame rejects empty wallets and nonpositive stakes for both sides (4.13038ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40.189834
+
+
+FILE presentation.test.js — EXIT 0
+✔ progress meters clamp values and never announce 100 percent before completion (2.271931ms)
+✔ overall progress gives each quest equal weight instead of mixing messages and voice milliseconds (3.94758ms)
+✔ all main views accept both pictures together and remain within Discord embed limits (9.983292ms)
+✔ appearance supports independent picture removal, black color and legacy defaults (1.481627ms)
+✔ calculation details explain parallel daily quests and Saudi midnight (1.120519ms)
+✔ uploaded images use Discord refreshable CDN URLs without stripping external signatures (0.612706ms)
+✔ legacy wallet presentation preserves old attendance money without an active reward meter (1.228266ms)
+✔ my quests shows only the completed three-hour voice task and preserves historical currency adjustments (3.183314ms)
+✔ old saved caps and enabled flags never restore the attendance card while disconnected or connected (3.565836ms)
+✔ old task commands and buttons now show the automatic daily tasks (11.411023ms)
+✔ points button fetches only the clicking member and privately replies without editing the public panel (8.909365ms)
+✔ rules are private and personal navigation survives a new handler with owner checks (5.804321ms)
+✔ balance is available without an Arena role while requests outside the clan server remain blocked (2.251059ms)
+✔ only administrators can save appearance and invalid mixed options perform no write (2.020791ms)
+✔ appearance saves both images once, refreshes the panel and is available in a fresh handler (2.398926ms)
+✔ a failed panel edit does not misreport a saved appearance as lost (1.862868ms)
+✔ administrator can upload a banner and thumbnail together without a separate image host (1.827381ms)
+✔ appearance persistence updates only its fields and revision without touching attendance or tasks (0.566176ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 76.866008
+
+
+FILE prizes.test.js — EXIT 0
+✔ all three prize types have inclusive percentage and money limits (2.5053ms)
+✔ money prizes credit the wallet and rankings once and can be spent without changing quest or activity progress (13.095419ms)
+✔ simultaneous prize requests pay once and preserve the same first draw (5.672151ms)
+✔ two-hour prize cooldown survives midnight and restart and expires at the exact boundary (3.490593ms)
+✔ invalid, stale, ineligible, wrong-channel and unsafe-balance requests never award a prize (2.706391ms)
+✔ lost prize acknowledgement preserves type 0 and its value without rerolling or duplicating (2.009832ms)
+✔ lost prize acknowledgement preserves type 1 and its value without rerolling or duplicating (1.773511ms)
+✔ lost prize acknowledgement preserves type 2 and its value without rerolling or duplicating (2.62344ms)
+✔ an unconfirmed prize write blocks further awards until restart and never creates hidden money (2.333322ms)
+✔ salary boost is consumed atomically once, does not shorten one hour and returns to the base amount (7.21366ms)
+✔ a salary bonus survives a blocked salary request and midnight until a successful payout (3.599413ms)
+✔ multiple salary bonuses queue for separate salaries instead of stacking or replacing a win (4.215835ms)
+✔ reset clears prize credits and unspent bonuses together while refusing pre-reset requests (2.882562ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66.552418
+
+
+FILE protection.test.js — EXIT 0
+✔ protection costs exactly 10000 for three hours, updates all wallet views and preserves activity and earned points (10.915871ms)
+✔ insufficient funds, invalid requests, wrong channels, lost membership and lease errors cannot purchase protection (17.109812ms)
+✔ distinct simultaneous purchases stack three hours each until funds run out and replays never extend again (5.667243ms)
+✔ simultaneous retries of the same purchase charge and extend exactly once (3.042237ms)
+✔ buying adds three hours to an existing automatic one-hour shield and deducts its price (4.718876ms)
+✔ buying protection blocks already-open robbery buttons and new attackers without any transfer (3.103545ms)
+✔ simultaneous robbery and protection respect whichever operation commits first (5.420034ms)
+✔ paid protection survives Saudi midnight and restart, expires exactly at three hours and can then be purchased again (3.554376ms)
+✔ paid protection survives bank reset and replay cannot restore a debit or renew the shield (3.146987ms)
+✔ paid protection survives activity reset and replay cannot restore a debit or renew the shield (1.914141ms)
+✔ paid protection survives all reset and replay cannot restore a debit or renew the shield (2.096284ms)
+✔ protection and shop purchases share the same available money and cannot overspend concurrently (3.352138ms)
+✔ auction escrow is unavailable for buying protection (9.278891ms)
+✔ protection purchase recovery handles intent before write exactly once (1.792194ms)
+✔ protection purchase recovery handles intent after write exactly once (1.28454ms)
+✔ protection purchase recovery handles debit before write exactly once (7.631302ms)
+✔ protection purchase recovery handles debit after write exactly once (1.146755ms)
+✔ protection purchase recovery handles receipt before write exactly once (1.342616ms)
+✔ protection purchase recovery handles receipt after write exactly once (1.302768ms)
+✔ protection purchase recovery handles completion before write exactly once (1.317924ms)
+✔ protection purchase recovery handles completion after write exactly once (1.80796ms)
+✔ protection extension recovery handles intent before write exactly once (1.958404ms)
+✔ protection extension recovery handles intent after write exactly once (1.910562ms)
+✔ protection extension recovery handles debit before write exactly once (2.646108ms)
+✔ protection extension recovery handles debit after write exactly once (2.608438ms)
+✔ protection extension recovery handles receipt before write exactly once (1.986564ms)
+✔ protection extension recovery handles receipt after write exactly once (1.839531ms)
+✔ protection extension recovery handles completion before write exactly once (2.015977ms)
+✔ protection extension recovery handles completion after write exactly once (2.127804ms)
+✔ initiator losses create a 15-minute target shield while ties create none and paid protection is preserved (3.779183ms)
+✔ stacked protection keeps the remaining time across midnight and restart and expires at the final boundary (2.445563ms)
+✔ a shield expiring while eligibility is checked starts the new three hours at purchase time (9.223391ms)
+✔ configured price and duration survive restart and renewal is blocked until the exact last minute (2.392114ms)
+✔ changed quote or invalid settings cannot debit; configured stacking uses the remaining time (1.913812ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.377211
+
+
+FILE quests.test.js — EXIT 0
+✔ the four requested defaults have the exact targets, rewards, rooms and one daily completion (2.414996ms)
+✔ general chat awards 100 only on the hundredth eligible message and never again that day (17.642742ms)
+✔ feeling requires an actual clan-role mention in the correct channel and rewards once (0.578355ms)
+✔ look requires media and the clan-role mention together in one message (0.435162ms)
+✔ rapid general, feeling and look messages advance their own quests (0.423398ms)
+✔ three cumulative voice hours award 180 once and do not mix with attendance points (0.551207ms)
+✔ all four rewards total 630 and all four reset at Saudi midnight with independent member progress (1.280589ms)
+✔ media detection accepts image/video attachments and media embeds but rejects text, audio and arbitrary links (0.768528ms)
+✔ message facts use Discord role-mention metadata rather than role names or raw text (0.413447ms)
+✔ a delayed media preview can complete the original look message only once (0.657171ms)
+✔ editing to add media or a mention later cannot satisfy the original message (0.452146ms)
+✔ expired previews, deleted messages and disconnected observations cannot credit a reward (0.170635ms)
+✔ new rooms and the role are required configuration instead of guessed Discord IDs (1.703773ms)
+✔ invalid mention/media conditions cannot be attached to voice tasks (0.475634ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 51.809381
+
+
+FILE reset-commands.test.js — EXIT 0
+✔ both reset commands are guild-only administration commands with a required user selector for member reset (17.206965ms)
+✔ preview is private, shows both point categories and the irreversible scope, and never changes data (11.553991ms)
+✔ unauthorized commands and commands from another guild never query or mutate balances (0.890527ms)
+✔ member reset uses the selected member even when the administrator is not an eligible clan member (4.574733ms)
+✔ everyone confirmation resets the whole clan exactly once even with simultaneous double clicks (2.448728ms)
+✔ another administrator cannot confirm or cancel the owner’s request, even with its exact button ID (1.416669ms)
+✔ permission loss and a different guild are rechecked at confirmation time (1.121992ms)
+✔ cancellation consumes the confirmation without resetting data (1.388839ms)
+✔ confirmation expires after two minutes and a process restart invalidates any outstanding request (1.33496ms)
+✔ a newer preview replaces this admin’s previous scope, so the older confirmation cannot delete unintended data (1.727484ms)
+✔ failed reset consumes its button and reports failure without showing a success embed (1.419572ms)
+✔ malformed or unknown reset buttons never execute a reset (0.582528ms)
+✔ activity selection displays its counters and the confirmation retains the selected target (1.230393ms)
+✔ missing or unsupported global selection cannot silently perform a full reset (0.844747ms)
+✔ changing from bank to activity expires the old bank confirmation (1.149982ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63.282938
+
+
+FILE reset.test.js — EXIT 0
+✔ reset preview includes all dates and both balances, scoped to the clan and optional user (23.214785ms)
+✔ member reset clears every leaderboard period, progress and voice carry while preserving other members and configuration (11.04004ms)
+✔ reset everyone deletes only this clan, including inactive members and historical days (1.80968ms)
+✔ reset requires the current worker lease and rejects malformed member IDs without broadening the scope (2.05355ms)
+✔ reset cutoffs survive reopening; delayed messages and media from before or exactly at reset cannot restore rewards (5.107192ms)
+✔ voice crossing reset starts at its cutoff and never reuses old minutes or reward fractions (4.235696ms)
+✔ reset near Saudi midnight cannot recreate pre-reset day rewards from a queued voice sample (1.693448ms)
+✔ a reset waits for an in-flight credit; queued old events are rejected and newer activity survives (2.521469ms)
+✔ a pending first-use day insert cannot resurrect a deleted document after reset (1.313488ms)
+✔ activity arriving during deletion waits until reset completes (2.001955ms)
+✔ failed activity does not deadlock a later exclusive reset (1.411123ms)
+✔ interrupted partial deletion blocks credits and resumes only the saved scope on restart (3.068536ms)
+✔ unconfirmed completion write is retried on restart, and completed resets never delete new credits again (1.956674ms)
+✔ a failed intent write never starts deletion (0.931281ms)
+✔ new member and global resets keep the strongest cutoff through subsequent restarts (0.729609ms)
+✔ manual points update every current period and reset preview, with the same atomic audit record (6.114025ms)
+✔ manual credit creates a new member day without completing a quest or inventing attendance (1.241165ms)
+✔ debits can use historical balance; the signed adjustment belongs to its issue date (1.745955ms)
+✔ insufficient funds and invalid adjustment inputs make no point or audit writes (13.330365ms)
+✔ concurrent debits are serialized and cannot overdraw the selected category (2.412333ms)
+✔ duplicate commands commit once and a reopened service returns the stored operation (2.374008ms)
+✔ a concurrent automatic quest credit and manual credit both survive without changing completion limits (2.877574ms)
+✔ voice additions do not consume the attendance cap and deductions cannot reopen it (3.924684ms)
+✔ reset deletes manual balances and audit entries; an old command cannot recreate them (2.690828ms)
+✔ a reset queued during an administrative write waits and then clears the committed balance (1.390232ms)
+✔ failed atomic adjustment writes leave no partial audit or balance; lost acknowledgements are verified (2.638982ms)
+✔ issue date remains stable across Saudi midnight and rejected expired commands do not write (1.416803ms)
+✔ administrative adjustments require the worker lease and remain blocked during incomplete reset (0.907084ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.944548
+
+
+FILE review-financial.test.js — EXIT 0
+✔ production audit path preserves challenge payouts and stores both outcomes (24.107839ms)
+✔ financial embed renders real newlines and fits Discord field limits (24.042899ms)
+✔ xo: audit-enabled settlement and journal replay keep balances and outcomes unique (9.050232ms)
+✔ buttonGame: audit-enabled settlement and journal replay keep balances and outcomes unique (7.200585ms)
+✔ minesGame: audit-enabled settlement and journal replay keep balances and outcomes unique (7.36444ms)
+✔ numbersGame: audit-enabled settlement and journal replay keep balances and outcomes unique (6.611735ms)
+✔ full reset of zero balances invalidates open leaderboard membership (1.536513ms)
+✔ full reset archives audit before deletion and recreated day produces new IDs (2.720301ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 99.457824
+
+
+FILE robbery-commands.test.js — EXIT 1
+✔ slash robbery has exactly one required member and commands panel lists its reference description (13.352158ms)
+✔ public challenge contains only the three player options and no hidden bot move or selected rate (15.297288ms)
+✖ a member cannot start a second robbery command while the first challenge is open (3.579044ms)
+✔ victim and other members cannot press, and a forged owner in the custom ID still cannot settle (4.960711ms)
+✔ owner selection reveals both moves, pays once and edits the public challenge with disabled buttons (8.680611ms)
+✔ failed theft displays a 15-minute target shield while ties display none (5.164123ms)
+✖ a protected target gets the reference reply with its remaining minutes and seconds and no currency changes (5.175972ms)
+✔ bang command resolves the mentioned member and cannot start for bots, webhook or another guild (5.007361ms)
+✔ missing, self, bot, ineligible and foreign-server targets never create a challenge (1.604973ms)
+✔ an uncertain payment leaves the public challenge intact and reports privately for recovery (2.000243ms)
+✔ failed Discord result edit does not refund or repeat the already committed transfer (6.8577ms)
+✔ all result variants fit embed limits, retain the footer brand and disable completed choices (4.615688ms)
+✔ wallet and task views disclose net robbery while activity and attendance caps stay separate (3.291108ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.428285
+
+✖ failing tests:
+
+test at test/robbery-commands.test.js:71:1
+✖ a member cannot start a second robbery command while the first challenge is open (3.579044ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /تم منعك من النهب لمدة 5 دقائق/. Input:
+  
+  '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/robbery-commands.test.js:79:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.',
+    expected: /تم منعك من النهب لمدة 5 دقائق/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/robbery-commands.test.js:142:1
+✖ a protected target gets the reference reply with its remaining minutes and seconds and no currency changes (5.175972ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /تم منعك من النهب لمدة 5 دقائق/. Input:
+  
+  '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/robbery-commands.test.js:159:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.',
+    expected: /تم منعك من النهب لمدة 5 دقائق/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+
+FILE robbery-mine.test.js — EXIT 1
+✔ random game selection covers both games and commits one hidden mine and a complete bot order (2.177225ms)
+✔ every possible mine gives exactly one loser within nine alternating picks and can never tie (1.398897ms)
+✔ bot order is independent of the mine and does not skip it (0.254677ms)
+✔ safe turns persist without touching either balance and survive restart without rerolling (9.051864ms)
+✔ simultaneous different clicks from one board consume only one player/bot turn (3.955473ms)
+✔ mine win, amount 600: settles once, keeps current protection, and stages both DMs (7.226966ms)
+✔ mine loss, amount 600: settles once, keeps current protection, and stages both DMs (2.427334ms)
+✔ mine win, amount 0: settles once, keeps current protection, and stages both DMs (2.37193ms)
+✖ mine loss, amount 0: settles once, keeps current protection, and stages both DMs (1.114998ms)
+✔ ownership, room, membership, stale cells, cross-game buttons, and bad input cannot spend or advance (4.204967ms)
+✔ target protection, bank changes and resets stop ongoing mine turns without a transfer (6.65576ms)
+✔ legacy RPS rounds remain playable and mine buttons cannot select a different game (4.253803ms)
+✔ safe-turn before-write interruption preserves the original board or committed pair (2.343419ms)
+✔ safe-turn after-write interruption preserves the original board or committed pair (2.861483ms)
+✔ mine settlement recovery: reserve before (6.068945ms)
+✔ mine settlement recovery: reserve after (2.182948ms)
+✔ mine settlement recovery: debit before (5.797418ms)
+✔ mine settlement recovery: debit after (1.869605ms)
+✔ mine settlement recovery: credit before (1.662175ms)
+✔ mine settlement recovery: credit after (1.910519ms)
+✔ mine settlement recovery: result before (1.786584ms)
+✔ mine settlement recovery: result after (1.650729ms)
+✔ mine settlement recovery: clear before (3.500589ms)
+✔ mine settlement recovery: clear after (1.983715ms)
+✔ 3×3 board hides the mine, marks safe numbers with green eyes and the hit with a red bomb (4.882297ms)
+✔ mine component parser rejects malformed cells/revisions and keeps RPS IDs compatible (0.373116ms)
+✔ slash and text render the committed player and bot turns in one usable board (7.342749ms)
+✔ failed Discord edit and replay cannot repeat a safe bot turn or financial transfer (5.928779ms)
+✔ a mine result keeps the one-minute cooldown, including restart and a different target (5.728793ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 28
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 119.418101
+
+✖ failing tests:
+
+test at test/robbery-mine.test.js:99:4
+✖ mine loss, amount 0: settles once, keeps current protection, and stages both DMs (1.114998ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/src/service.js:430:95
+
+
+FILE robbery-rates.test.js — EXIT 0
+✔ independent lower boundaries for wins, losses and timeouts (2.158868ms)
+✔ independent upper boundaries for wins, losses and timeouts (0.344982ms)
+✔ unequal balances tie at zero with no payer, recipient, debit or misleading equality claim (6.692209ms)
+✔ unfinished old rounds get bounded deterministic rates and zero ties (0.490976ms)
+✔ pending version 2 rounds use the reduced upper loss bound after upgrade (0.401727ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19.812396
+
+
+FILE robbery-spam.test.js — EXIT 0
+✔ second attempt within ten seconds blocks five minutes, survives restart and extends by five minutes per new command (10.248887ms)
+✔ ten-second boundary is allowed, simultaneous new commands block only their author (2.823544ms)
+✔ failed protected-target attempts across targets trigger punishment and وقت reports remaining ban (24.396226ms)
+✔ spam ban does not prevent finishing an existing challenge or change balances on its own (6.036339ms)
+✔ lost write acknowledgement is recovered without recording another command (1.261846ms)
+✔ each new blocked command adds five minutes; duplicates and lost acknowledgments never add twice (1.70234ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.54983
+
+
+FILE robbery-timeout.test.js — EXIT 1
+✔ rps: no click loses automatically exactly at expiry, grants normal loss shield, and notifies both sides (26.641746ms)
+✔ mine: no click loses automatically exactly at expiry, grants normal loss shield, and notifies both sides (6.061516ms)
+✔ starting the mine then abandoning it loses without inventing another pick or moving the mine (5.354495ms)
+✔ a stale mine click at expiry shows only the timeout result, without a phantom bot animation (5.272512ms)
+✔ rps: a press and background expiry racing at the deadline cannot play or charge twice (4.076396ms)
+✔ mine: a press and background expiry racing at the deadline cannot play or charge twice (4.493914ms)
+✔ a move committed before the deadline keeps its result and cannot become a later timeout loss (4.824665ms)
+✖ timeout uses available balances, including an empty wallet, without counting it as a tie (1.764761ms)
+✔ bank resets, disabled robbery and moved channels cancel games instead of imposing timeout penalties (6.46378ms)
+✔ older unplayed rounds never gain a retroactive timeout penalty (3.170365ms)
+✖ the same target accepts only the first concurrent attacker, across both game types and restart (4.846528ms)
+✔ the target lock is released on settlement while normal protection remains, including for a tie (12.151952ms)
+✔ invalidated games release the target, and the old player cannot settle them later (1.788905ms)
+✔ an attacker cannot open another target to escape an overdue loss before the timer runs (2.549133ms)
+✔ buying protection mid-game cancels the blocked challenge without imposing a timeout debit (3.564301ms)
+✔ lost lease blocks expiry and cannot debit or release a target reservation (2.445494ms)
+✔ timeout journal recovery: reserve before (4.153596ms)
+✔ timeout journal recovery: reserve after (3.638516ms)
+✔ timeout journal recovery: debit before (3.771587ms)
+✔ timeout journal recovery: debit after (3.635496ms)
+✔ timeout journal recovery: credit before (3.427953ms)
+✔ timeout journal recovery: credit after (3.606198ms)
+✔ timeout journal recovery: result before (3.845465ms)
+✔ timeout journal recovery: result after (4.659726ms)
+✔ timeout journal recovery: clear before (3.768043ms)
+✔ timeout journal recovery: clear after (6.739867ms)
+✔ rps: the worker updates the original public message without a click and survives restarting (19.052695ms)
+✔ mine: the worker updates the original public message without a click and survives restarting (3.650074ms)
+✔ Discord being offline or refusing edits never postpones settlement or repeats the debit (6.348231ms)
+✔ a slow Discord edit cannot block other rounds from losing at their deadline (6.64253ms)
+✔ deleted messages are not re-sent, and an unbound sent message is recovered by its saved button IDs (7.335312ms)
+✔ a stopped worker cannot settle or edit until it resumes (3.178699ms)
+✔ slash and text commands save their reply identity for automatic timeout edits (6.255676ms)
+✔ a failed safe-turn edit recovers automatically without another click, including after restart (3.80627ms)
+✔ legacy boards stuck on the old bot preview are restored from the saved pair (3.50663ms)
+✔ mine: an unpublished game never incurs an inactivity debit (1.503203ms)
+✔ rps: an unpublished game never incurs an inactivity debit (1.896861ms)
+✔ an undelivered safe turn cancels at expiry rather than fining a player who cannot see the current board (4.460039ms)
+✔ a recovered, confirmed board still applies the normal inactivity loss exactly once (4.902195ms)
+✔ an old display acknowledgement cannot hide an unrendered newer mine turn (1.87837ms)
+✔ expiry during an in-flight old board edit leaves the final result queued for display (4.165291ms)
+✔ a deleted active message closes the challenge and releases its target without charging (2.70653ms)
+✔ old abandoned rounds cannot starve current expiry or impose retroactive debits (28.879716ms)
+✔ the uploaded timedOut result format displays honestly without inventing a mine hit (6.940335ms)
+✔ mine: a confirmed departure cancels durably and cannot become a later inactivity debit (1.841775ms)
+✔ rps: a confirmed departure cancels durably and cannot become a later inactivity debit (1.991906ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 44
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 277.052113
+
+✖ failing tests:
+
+test at test/robbery-timeout.test.js:82:1
+✖ timeout uses available balances, including an empty wallet, without counting it as a tie (1.764761ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/src/service.js:430:95
+
+test at test/robbery-timeout.test.js:109:1
+✖ the same target accepts only the first concurrent attacker, across both game types and restart (4.846528ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/robbery-timeout.test.js:114:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+
+FILE robbery.test.js — EXIT 0
+✔ all nine rock-paper-scissors outcomes and inclusive random limits are correct (3.929379ms)
+✔ win, loss and both tie directions transfer a percentage of the actual paying balance (1.197283ms)
+✔ fractional amounts round down, zero wallets transfer zero and unsafe balances are rejected (1.035006ms)
+✔ target protection: successful theft (16.598261ms)
+✔ target protection: initiator loses (5.833978ms)
+✔ target protection: tie with a poorer target (3.542172ms)
+✔ target protection: tie with a richer target (3.644544ms)
+✔ target protection: equal balances (4.159601ms)
+✔ target protection: empty target wallet (3.24811ms)
+✔ target protection: rounded transfer is zero (3.292085ms)
+✔ one-hour shield starts at settlement, survives restart and expires at the exact boundary (5.402854ms)
+✔ a protected target can initiate a challenge and unrelated targets remain available (5.331014ms)
+✔ legacy settled rounds remain replayable without creating a retroactive shield (4.512357ms)
+✔ hidden choice and percent are stored before rendering and survive repeat commands and restart (8.18507ms)
+✔ same member must wait a full minute after finishing a robbery before starting another, and the wait survives restart (4.111913ms)
+✔ bad participants, membership, request age, lease and forged round ownership cannot transfer money (4.321253ms)
+✔ payment uses balances at the click, credits immediately and cannot alter activity or earned rewards (6.577549ms)
+✔ concurrent presses with different moves settle exactly once and later presses return the saved result (9.162338ms)
+✔ loss can debit both wallet buckets while recipient earns currency without consuming voice cap (2.538788ms)
+✔ equal-money and sub-unit results persist as completed without fabricating a transfer (4.095365ms)
+✔ an expired challenge is a loss, and a later challenge has its own hidden draw (3.152285ms)
+✔ robbery, shop purchase and administrative debit share one gate and conserve the remaining wallets (26.665487ms)
+✔ a second attacker is refused before play and still cannot bypass the first target shield (4.335943ms)
+✔ robbery interruption recovery: intent before commit (5.697761ms)
+✔ robbery interruption recovery: intent acknowledgement lost (3.588431ms)
+✔ robbery interruption recovery: debit before commit (5.15323ms)
+✔ robbery interruption recovery: debit acknowledgement lost (3.86169ms)
+✔ robbery interruption recovery: credit before commit (5.408922ms)
+✔ robbery interruption recovery: credit acknowledgement lost (10.330252ms)
+✔ robbery interruption recovery: result before commit (3.909844ms)
+✔ robbery interruption recovery: result acknowledgement lost (5.416198ms)
+✔ robbery interruption recovery: clear before commit (14.811525ms)
+✔ robbery interruption recovery: clear acknowledgement lost (3.213405ms)
+✔ lost creation acknowledgement cannot reroll the hidden bot choice after restart (2.341939ms)
+✔ resetting either participant invalidates an open round; settled rounds never replay after resets (9.004544ms)
+✔ a challenge crossing Saudi midnight debits and credits the settlement day only (3.300687ms)
+✔ wallet display waits for both legs and never combines a pending debit with stale totals (7.322683ms)
+✔ upgrade caps an existing twelve-hour theft shield at one hour from its original start without rewriting money (4.016016ms)
+✔ upgrade applies the current automatic shield rule to loss without changing its settled transfer (3.577073ms)
+✔ upgrade applies the current automatic shield rule to tie debiting the target without changing its settled transfer (1.682793ms)
+✔ upgrade applies the current automatic shield rule to equal tie without changing its settled transfer (2.446603ms)
+✔ an obsolete tie shield cannot hide the latest effective winning shield (2.618419ms)
+✔ upgrade recovery applies the current shield rule to an old pending paper result (3.393721ms)
+✔ upgrade recovery applies the current shield rule to an old pending scissors result (2.608973ms)
+✔ upgrade recovery applies the current shield rule to an old pending rock result (2.270245ms)
+ℹ tests 45
+ℹ suites 0
+ℹ pass 45
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 253.552792
+
+
+FILE runtime-control.test.js — EXIT 0
+✔ runtime command exposes stop/start and persists stop through process restart (22.284767ms)
+✔ resume fences stopped activity, keeps balances, clears pause only after boundaries reset (3.307902ms)
+✔ lost switch acknowledgement is recovered; stale requests cannot reverse a newer switch (5.478514ms)
+✔ unauthorized member cannot toggle; recovery command remains accessible while paused (4.795729ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 44.077923
+
+
+FILE scoped-reset.test.js — EXIT 0
+✔ bank reset zeroes all wallet sources and periods without changing activity, quests, cooldowns or other clans (17.299879ms)
+✔ activity reset clears only chat and voice in every period and preserves every wallet and quest record (4.593628ms)
+✔ activity cutoff survives restart, ignores late old messages and counts only the new part of voice (6.950255ms)
+✔ bank reset preserves a daily quest and awards its later completion exactly once (4.57314ms)
+✔ activity reset preserves a daily quest and awards its later completion exactly once (4.299023ms)
+✔ bank reset preserves cooldowns, rejects old financial requests and allows fresh credits and later resets (8.827638ms)
+✔ activity reset remains available with an auction hold, while bank reset cannot erase the reserved funds (9.313106ms)
+✔ activity-only reset across Saudi midnight does not resurrect the old day or erase a new-day wallet (4.339893ms)
+✔ bank reset recovers before days.replaceOne without changing the other section or repeating (7.068715ms)
+✔ bank reset recovers after days.replaceOne without changing the other section or repeating (4.080944ms)
+✔ bank reset recovers before resets.updateOne without changing the other section or repeating (4.458468ms)
+✔ bank reset recovers after resets.updateOne without changing the other section or repeating (3.410886ms)
+✔ activity reset recovers before days.replaceOne without changing the other section or repeating (3.429823ms)
+✔ activity reset recovers after days.replaceOne without changing the other section or repeating (9.430155ms)
+✔ activity reset recovers before resets.updateOne without changing the other section or repeating (1.808418ms)
+✔ activity reset recovers after resets.updateOne without changing the other section or repeating (2.01443ms)
+✔ invalid target refuses the reset before touching data or blocking the service (0.752282ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.338249
+
+
+FILE sheikh-spam.test.js — EXIT 0
+✔ sheikh beats booster, inclusive salary bounds, fetched clan role (2.086539ms)
+✔ three second boundary and channel scope exclude bots, webhooks, other guilds (0.462191ms)
+✔ each rapid message debits 500, debt and duplicate/restart recovery, persistent DM reason (18.571339ms)
+✔ sheikh salary persists once and uses ordinary hourly cooldown (3.163245ms)
+✔ delayed penalty recovery remains valid after fifteen minutes (1.242588ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34.787615
+
+
+FILE ship-game.test.js — EXIT 0
+✔ carrier occupies a rectangle in both orientations, placements cannot overlap or wrap (131.890481ms)
+✔ six ships and 26 cells must sink; misses and duplicate shots are handled (1.430941ms)
+✔ challenge validation, balance recheck, rejection and invitation timeout leave balances intact (21.198664ms)
+✔ independent fleet versions allow concurrent setup and freeze ships after ready (26.079032ms)
+✔ hits retain the turn, misses pass it, sixth sinking settles once without tax (41.692257ms)
+✔ setup timeout awards the sole ready player; neither ready or undelivered setup refunds (25.76377ms)
+✔ delivered battle expires once; failed delivery refunds instead of penalizing a player (28.158038ms)
+✔ restart preserves fleet, hits, turn and deadline; settings, membership and pause cancel safely (38.032415ms)
+✔ recovery after before hold failure cannot double-charge or double-pay (3.385757ms)
+✔ recovery after before payout failure cannot double-charge or double-pay (26.632767ms)
+✔ recovery after after hold failure cannot double-charge or double-pay (2.862678ms)
+✔ recovery after after payout failure cannot double-charge or double-pay (39.896868ms)
+✔ public pixels and opponent pixels do not depend on unsunk hidden positions (260.448364ms)
+✔ all states obey Discord component limits and slash, text, help and cooldown registration work (251.865947ms)
+✔ real text and private interactions arrange, rotate, select and fire without exposing private attachments (732.950108ms)
+✔ spectators, copied public controls and another owner cannot open or mutate secret panels (70.37176ms)
+✔ manager recovers a public edit failure and refunds when the original message was deleted (79.57039ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1812.597194
+
+
+FILE shop-commands.test.js — EXIT 0
+✔ shop commands declare bounded required fields and administrative permissions (19.643673ms)
+✔ slash, shared button and saved private navigation all open a private shop (27.772039ms)
+✔ buy button opens product select; selecting debits and acknowledges exactly one order after handler restart (11.776399ms)
+✔ unauthorized administrators, other guilds, other owners and former members cannot mutate or purchase (7.430223ms)
+✔ administrators can add optional description, remove by name, and configure role/channel without pings (4.531624ms)
+✔ catalog pagination, stale-page clamping, sold-out filtering and worst-case styling fit Discord limits (14.454039ms)
+✔ invalid select arity and expired menus never claim purchase success (2.618878ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 98.493423
+
+
+FILE shop-notifications.test.js — EXIT 0
+✔ purchase notification pings only the configured role and names buyer, product and order (36.662671ms)
+✔ failed send keeps the paid order, retries after delay and never changes balance or stock (4.458056ms)
+✔ lost database acknowledgement after Discord send is recovered from recent messages (2.794239ms)
+✔ notification validation rejects wrong guild, wrong channel type, missing permissions and unmentionable role (2.257553ms)
+✔ pending notices use updated routing and loss of worker readiness prevents sending (3.739271ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60.346071
+
+
+FILE shop.test.js — EXIT 0
+✔ shop accepts optional descriptions and rejects invalid product fields without changing catalog (6.920633ms)
+✔ purchase spends tasks first then legacy attendance currency while quest progress stays intact (33.105802ms)
+✔ concurrent selection retries and different selections on the same menu make one order (3.743429ms)
+✔ two members competing for the final item cannot oversell stock (2.119719ms)
+✔ purchase and manual debit share a gate and cannot spend the same points twice (2.819238ms)
+✔ insufficient funds, missing configuration, stale checkout and removed products do not debit (1.902529ms)
+✔ restart recovery: reservation not saved (3.254799ms)
+✔ restart recovery: reservation acknowledgement lost (2.513368ms)
+✔ restart recovery: debit not saved (2.002541ms)
+✔ restart recovery: debit acknowledgement lost (2.307617ms)
+✔ restart recovery: order not saved (1.929677ms)
+✔ restart recovery: order acknowledgement lost (2.098781ms)
+✔ restart recovery: completion not saved (1.94701ms)
+✔ restart recovery: completion acknowledgement lost (1.652056ms)
+✔ reset after purchase keeps orders and inventory; old menus cannot debit the new balance (3.511864ms)
+✔ midnight preserves total wallet and records a purchase in its actual Saudi day (2.016172ms)
+✔ accepted Discord clock skew across midnight cannot hide a debit from the spendable total (2.0775ms)
+✔ catalog survives initialization, can be removed by exact name and enforces capacity (47.780587ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 138.408837
+
+
+FILE special-tasks.test.js — EXIT 0
+✔ special defaults match all three manual rewards and input validation rejects invalid titles and amounts (2.04796ms)
+✔ initializing special tasks is atomic, clan scoped and preserves existing or empty catalogs on restart (1.534123ms)
+✔ special task writes require a lease and initialization resumes after an uncertain acknowledgement (1.207973ms)
+✔ concurrent special task additions and interaction replays preserve all entries without granting points (3.541236ms)
+✔ catalog capacity stays atomic and failed or uncertain writes are reported without duplicating entries (1.137342ms)
+✔ special slash command and all buttons privately display the saved catalog without activity or point writes (16.679369ms)
+✔ admin special-task command needs only a name and reward, enforces permissions and appears immediately on the list (14.654299ms)
+✔ special catalog pagination retains all tasks, honors owner checks and stays within embed limits with images (5.840578ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 54.404239
+
+
+FILE startup.test.js — EXIT 1
+✔ boot banner precedes module loading and unsupported Node fails without loading the application (4.595637ms)
+✔ an early missing module and a synchronous constructor error retain their stage and code (2.264665ms)
+✔ error details redact normalized tokens, database credentials, headers and stack locations before truncation (1.519454ms)
+✔ logger also redacts unknown database URLs and token-shaped strings and bounds circular causes (0.666456ms)
+✖ real node src/index.js reports a missing configuration variable and exits nonzero without connecting (780.704001ms)
+✖ real entry catches MongoClient constructor failures that occur before the main startup try block (801.336313ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1603.268794
+
+✖ failing tests:
+
+test at test/startup.test.js:77:1
+✖ real node src/index.js reports a missing configuration variable and exits nonzero without connecting (780.704001ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + Error: spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node EPERM
+  +     at Object.spawnSync (node:internal/child_process:1160:20)
+  +     at spawnSync (node:child_process:928:24)
+  +     at runEntry (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:16:18)
+  +     at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:78:18)
+  +     at Test.runInAsyncScope (node:async_hooks:227:14)
+  +     at Test.run (node:internal/test_runner/test:1382:25)
+  +     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+  +     at Test.postRun (node:internal/test_runner/test:1522:19)
+  +     at Test.run (node:internal/test_runner/test:1447:12)
+  +     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+  +   code: 'EPERM',
+  +   errno: -1,
+  +   path: '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+  +   spawnargs: [
+  +     'src/index.js'
+  +   ],
+  +   syscall: 'spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node'
+  + }
+  - undefined
+  
+      at runEntry (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:18:10)
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:78:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Error],
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/startup.test.js:85:1
+✖ real entry catches MongoClient constructor failures that occur before the main startup try block (801.336313ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + Error: spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node EPERM
+  +     at Object.spawnSync (node:internal/child_process:1160:20)
+  +     at spawnSync (node:child_process:928:24)
+  +     at runEntry (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:16:18)
+  +     at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:86:18)
+  +     at Test.runInAsyncScope (node:async_hooks:227:14)
+  +     at Test.run (node:internal/test_runner/test:1382:25)
+  +     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+  +     at Test.postRun (node:internal/test_runner/test:1522:19)
+  +     at Test.run (node:internal/test_runner/test:1447:12)
+  +     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+  +   code: 'EPERM',
+  +   errno: -1,
+  +   path: '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+  +   spawnargs: [
+  +     'src/index.js'
+  +   ],
+  +   syscall: 'spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node'
+  + }
+  - undefined
+  
+      at runEntry (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:18:10)
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/project/GAME-V44-main/test/startup.test.js:86:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Error],
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+
+FILE store.test.js — EXIT 0
+✔ revision retry loop does not lose concurrent independent updates (9.376053ms)
+✔ concurrent duplicate task completions credit once through the store API (3.816796ms)
+✔ mutation exceptions cannot partially change persisted progress or points (0.448469ms)
+✔ ignored events do not cause unnecessary database replacement (0.169179ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.375227
+
+
+FILE task-boost.test.js — EXIT 0
+✔ multipliers apply only at completion inside the exact event interval (1.562336ms)
+✔ event creation validates input, persists, rejects overlap and is idempotent (7.570587ms)
+✔ daily message rewards multiply once, old completions stay unchanged and expired boost does not pay extra (65.570725ms)
+✔ voice task is multiplied but separate attendance is not (5.161213ms)
+✔ verified games task multiplies and remains idempotent across restart (18.366448ms)
+✔ event write failure before cannot create stacked multipliers (1.357691ms)
+✔ event write failure after cannot create stacked multipliers (0.745383ms)
+✔ announcement uses same channel, exact role and image, recovers lost bind without duplicate ping, and closes at expiry (16.769962ms)
+✔ slash command requires management and posts the public announcement through the manager (5.983778ms)
+✔ concurrent administrator commands cannot create overlapping boosts (0.992929ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.25578
+
+
+FILE time-launcher.test.js — EXIT 0
+✔ اكس time uses sender-only twenty-minute cooldown and exact expiry (23.340966ms)
+✔ ارقام time uses sender-only twenty-minute cooldown and exact expiry (7.667126ms)
+✔ زر time uses sender-only twenty-minute cooldown and exact expiry (5.569121ms)
+✔ الغام time uses sender-only twenty-minute cooldown and exact expiry (5.333715ms)
+✔ personal time button is private, owner-bound and re-reads time on every press; shared menu uses clicking user (12.708813ms)
+✔ time button still enforces bank channel, clan guild and membership (1.444457ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.366081
+
+
+FILE voice-attendance-private.test.js — EXIT 0
+✔ voice upgrade preserves balances/progress, enables presence and is idempotent across restarts (21.876582ms)
+✔ a deafened/muted member alone completes voice quest at 3 hours and reaches exactly 4000 at 7 hours (614.308909ms)
+✔ voice cache gaps count verified humans but never unknown users or known bots (0.45702ms)
+✔ slash and text aliases post a public launcher without tasks or DM; owner opens privately in same channel (8.588651ms)
+✔ private refresh updates privately and public legacy refresh opens a new private response (3.107785ms)
+✔ upgrade and restarts preserve saved mute/deafen and minimum people settings (1.57906ms)
+✔ live mute/deafen settings control new voice time without losing already counted progress (4.521467ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 663.343588
+
+
+FILE voice-channels.test.js — EXIT 0
+✔ extra voice rooms are optional, validate IDs and deduplicate all three rooms (5.218907ms)
+✔ 60 minutes in each of three clan rooms completes the existing three-hour quest exactly once (3.727691ms)
+✔ attendance anchored to the third room shares fractions and one daily cap across all three rooms (0.604317ms)
+✔ unconfigured channels do not earn clan rewards and removing the third ID preserves earned progress (0.504806ms)
+✔ voice grouping leaves message tasks and custom voice channels bound to their own rooms (0.897233ms)
+✔ enabling the second room after restart keeps current assignments, earned rewards and attendance fractions (6.447005ms)
+✔ enabling the third room after restart keeps current assignments, earned rewards and attendance fractions (1.40104ms)
+✔ tracker moves between all three rooms and leaving credit each elapsed interval only once (3.549315ms)
+✔ third-room intervals crossing Saudi midnight split days and never carry yesterday progress into today (2.07388ms)
+✔ visible voice states count with Connect denied, while hidden and untracked channels are excluded (1.473621ms)
+✔ legacy four-quest display lists all three voice rooms and the current availability notice (5.009937ms)
+✔ attendance settings show all three effective channels and status checks each once (12.535164ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 55.683595
+
+
+FILE voice-retry.test.js — EXIT 0
+✔ one failed member cannot discard other members or credit departed time (2.232839ms)
+✔ committed interval with lost acknowledgment retries without duplicate time (0.55301ms)
+✔ slow member does not prevent another member starting its save (5.034872ms)
+✔ pending known time survives disconnect without counting disconnected gap (0.750699ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28.708946
+
+
+FILE xo.test.js — EXIT 0
+✔ all eight winning lines recognized for X and O (1.735226ms)
+✔ reject invalid challenge {"amount":0} (7.592189ms)
+✔ reject invalid challenge {"amount":-1} (14.485521ms)
+✔ reject invalid challenge {"amount":1.5} (1.305193ms)
+✔ reject invalid challenge {"amount":1000000001} (1.34341ms)
+✔ reject invalid challenge {"o":"100000000000000010"} (1.290944ms)
+✔ reject invalid challenge {"bot":true} (0.902705ms)
+✔ reject invalid challenge {"o":"bad"} (0.844673ms)
+✔ both balances checked on creation and again at consent; rejection has no cost (5.503223ms)
+✔ X wins conserves money and duplicate terminal clicks never pay twice (7.737324ms)
+✔ O wins conserves money and duplicate terminal clicks never pay twice (4.824573ms)
+✔ draw conserves money and duplicate terminal clicks never pay twice (10.394204ms)
+✔ turn ownership, occupied cells, wrong channel and stale clicks cannot change the board (2.557541ms)
+✔ simultaneous accepts reserve once and simultaneous clicks apply once (2.389607ms)
+✔ held funds cannot be spent by other bank features, nor reset before release (5.049369ms)
+✔ restart retains board/holds; expiry loses, cooldown ends exactly at 20 minutes (6.565161ms)
+✔ invitation expires without debit and bank changes release active holds (2.787214ms)
+✔ recovery after xo_journals before fault preserves both escrow legs (1.421878ms)
+✔ recovery after days before fault preserves both escrow legs (2.925344ms)
+✔ recovery after xo_games before fault preserves both escrow legs (2.851804ms)
+✔ recovery after xo_journals after fault preserves both escrow legs (2.384518ms)
+✔ recovery after days after fault preserves both escrow legs (2.248267ms)
+✔ recovery after xo_games after fault preserves both escrow legs (1.89219ms)
+✔ terminal payout recovers once after interrupted second wallet write (3.494721ms)
+✔ text command supports Arabic digits and target/amount plus public board rendering (5.594569ms)
+✔ insufficient funds of either member at invitation are refused (2.190095ms)
+✔ timeout payout recovers once after interrupted wallet write (3.939756ms)
+✔ manager updates expired games and a deleted game message releases funds (3.905615ms)
+✔ slash command and component handler enforce ownership and expose private errors (3.07252ms)
+✔ invitation accepts at 29999 ms but expires at exactly 30000 ms without debit (3.339154ms)
+✔ each valid move resets a 30 second turn; deadline click loses without placing a mark (3.898821ms)
+✔ timer and late button racing settle a timeout exactly once (10.521468ms)
+✔ old games and undelivered boards refund instead of retroactive or technical timeout losses (3.166687ms)
+✔ delivered board timeout charges its owner; configuration cancellation has priority (3.417749ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 147.163431

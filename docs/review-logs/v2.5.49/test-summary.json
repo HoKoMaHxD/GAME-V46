@@ -1,0 +1,266 @@
+[
+  {
+    "file": "activity-economy.test.js",
+    "result": 0
+  },
+  {
+    "file": "auction-commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "auction-manager.test.js",
+    "result": 0
+  },
+  {
+    "file": "auction.test.js",
+    "result": 0
+  },
+  {
+    "file": "auth.test.js",
+    "result": 0
+  },
+  {
+    "file": "bank-commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "bank-live-views.test.js",
+    "result": 0
+  },
+  {
+    "file": "bank-menu.test.js",
+    "result": 0
+  },
+  {
+    "file": "bank.test.js",
+    "result": 0
+  },
+  {
+    "file": "booster-salary.test.js",
+    "result": 0
+  },
+  {
+    "file": "boxes-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "button-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "challenger-cooldown.test.js",
+    "result": 0
+  },
+  {
+    "file": "command-times.test.js",
+    "result": 1
+  },
+  {
+    "file": "commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "daily-quests.test.js",
+    "result": 0
+  },
+  {
+    "file": "daily-rewards.test.js",
+    "result": 0
+  },
+  {
+    "file": "daily-views.test.js",
+    "result": 0
+  },
+  {
+    "file": "domain.test.js",
+    "result": 0
+  },
+  {
+    "file": "dot-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "experience-commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "financial-log.test.js",
+    "result": 0
+  },
+  {
+    "file": "game-interactions.test.js",
+    "result": 0
+  },
+  {
+    "file": "games.test.js",
+    "result": 0
+  },
+  {
+    "file": "infinite-xo.test.js",
+    "result": 0
+  },
+  {
+    "file": "member-notifications.test.js",
+    "result": 1
+  },
+  {
+    "file": "membership.test.js",
+    "result": 0
+  },
+  {
+    "file": "memory-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "message-counting.test.js",
+    "result": 0
+  },
+  {
+    "file": "migration.test.js",
+    "result": 0
+  },
+  {
+    "file": "mines-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "mini-games.test.js",
+    "result": 0
+  },
+  {
+    "file": "numbers-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "panel.test.js",
+    "result": 0
+  },
+  {
+    "file": "permissions.test.js",
+    "result": 0
+  },
+  {
+    "file": "point-commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "positive-balance.test.js",
+    "result": 0
+  },
+  {
+    "file": "presentation.test.js",
+    "result": 0
+  },
+  {
+    "file": "prizes.test.js",
+    "result": 0
+  },
+  {
+    "file": "protection.test.js",
+    "result": 0
+  },
+  {
+    "file": "quests.test.js",
+    "result": 0
+  },
+  {
+    "file": "reset-commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "reset.test.js",
+    "result": 0
+  },
+  {
+    "file": "review-financial.test.js",
+    "result": 0
+  },
+  {
+    "file": "robbery-commands.test.js",
+    "result": 1
+  },
+  {
+    "file": "robbery-mine.test.js",
+    "result": 1
+  },
+  {
+    "file": "robbery-rates.test.js",
+    "result": 0
+  },
+  {
+    "file": "robbery-spam.test.js",
+    "result": 0
+  },
+  {
+    "file": "robbery-timeout.test.js",
+    "result": 1
+  },
+  {
+    "file": "robbery.test.js",
+    "result": 0
+  },
+  {
+    "file": "runtime-control.test.js",
+    "result": 0
+  },
+  {
+    "file": "scoped-reset.test.js",
+    "result": 0
+  },
+  {
+    "file": "sheikh-spam.test.js",
+    "result": 0
+  },
+  {
+    "file": "ship-game.test.js",
+    "result": 0
+  },
+  {
+    "file": "shop-commands.test.js",
+    "result": 0
+  },
+  {
+    "file": "shop-notifications.test.js",
+    "result": 0
+  },
+  {
+    "file": "shop.test.js",
+    "result": 0
+  },
+  {
+    "file": "special-tasks.test.js",
+    "result": 0
+  },
+  {
+    "file": "startup.test.js",
+    "result": 1
+  },
+  {
+    "file": "store.test.js",
+    "result": 0
+  },
+  {
+    "file": "task-boost.test.js",
+    "result": 0
+  },
+  {
+    "file": "time-launcher.test.js",
+    "result": 0
+  },
+  {
+    "file": "voice-attendance-private.test.js",
+    "result": 0
+  },
+  {
+    "file": "voice-channels.test.js",
+    "result": 0
+  },
+  {
+    "file": "voice-retry.test.js",
+    "result": 0
+  },
+  {
+    "file": "xo.test.js",
+    "result": 0
+  }
+]

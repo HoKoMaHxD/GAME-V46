@@ -1,0 +1,359 @@
+original-command-times.test.js.log
+✔ وقت reads a new member without assigning tasks, creating days or writing anything (11.228497ms)
+✔ salary and prize deadlines persist across midnight and restart and become ready at their exact boundaries (10.529605ms)
+✔ disabled commands and quest ineligibility are not shown as ready (4.470162ms)
+✔ protection reports the full stacked expiration and allows buying more while protected (7.773173ms)
+✖ robbery reports an open challenge and ignores expired or invalidated challenges (2.047668ms)
+✔ remaining time rounds up a partial second and public payloads never ping members (2.76491ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 47.829623
+
+✖ failing tests:
+
+test at test/command-times.test.js:70:1
+✖ robbery reports an open challenge and ignores expired or invalidated challenges (2.047668ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/src/service.js:428:95
+
+
+original-member-notifications.test.js.log
+✔ preferences default on; per-member toggles are persistent, idempotent and survive reset/restart (11.930704ms)
+✔ notification button toggles only the clicker and replies privately without editing the public panel (8.426501ms)
+✔ salary and prize receipts and readiness notify once through retries and restart without paying again (20.924117ms)
+✔ a new salary claim invalidates the previous ready reminder and disabled salary does not starve prize alerts (16.449523ms)
+✔ opt-out suppresses all due alerts; re-enabling never replays muted history but preserves future timers (8.078131ms)
+✔ DM-closed members keep their preferences and money, and failures do not affect other members (8.521844ms)
+✔ ambiguous network acknowledgement recovers the existing DM after restart without duplicates (11.42378ms)
+✔ ambiguous database acknowledgement recovers the existing DM after restart without duplicates (4.184223ms)
+✔ known failed sends back off then recover, and incomplete history never causes a blind duplicate retry (7.967804ms)
+✔ event staging shares the salary commit and outbox materialization can be retried safely (8.171025ms)
+✔ robbery win with target balance 10000 alerts both sides, including zero transfers (10.16111ms)
+✔ robbery loss with target balance 10000 alerts both sides, including zero transfers (6.531845ms)
+✔ robbery tie with target balance 10000 alerts both sides, including zero transfers (5.262751ms)
+✔ robbery tie with target balance 20000 alerts both sides, including zero transfers (4.771076ms)
+✔ robbery win with target balance 0 alerts both sides, including zero transfers (6.159183ms)
+✖ a target's 15-minute failed-robbery shield sends its expiry DM, attacker balance 0 (1.584903ms)
+✔ a target's 15-minute failed-robbery shield sends its expiry DM, attacker balance 1000 (21.555351ms)
+✔ stacked protection only reports its final expiration and preserves the paid duration across restart (7.491396ms)
+✔ downtime spanning several superseded shields still produces one final protection expiry (6.136309ms)
+✔ losing the worker lease stops notification collection and sending (1.277055ms)
+✔ store purchases, administrative balance changes and scoped resets notify without altering financial outcomes (8.752609ms)
+✔ auction start, outbid refund and winner notifications use committed outcomes (11.817016ms)
+✔ auction start, outbid refund and cancellation notifications use committed outcomes (7.175494ms)
+✔ first upgrade schedules only future existing timers, without sending historical receipts (2.61348ms)
+✔ no-mutual-guild DM failures are finalized without error logs or retry loops (2.467165ms)
+✔ missing members, lost readiness and expired reminders never cause DMs or change earned balances (2.698614ms)
+✔ opting out waits for an in-flight send, then prevents any later notification (2.991447ms)
+✔ DM payloads escape member-controlled content and fit Discord limits (0.727928ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 27
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 239.981476
+
+✖ failing tests:
+
+test at test/member-notifications.test.js:196:32
+✖ a target's 15-minute failed-robbery shield sends its expiry DM, attacker balance 0 (1.584903ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/src/service.js:428:95
+
+
+original-robbery-commands.test.js.log
+✔ slash robbery has exactly one required member and commands panel lists its reference description (21.123955ms)
+✔ public challenge contains only the three player options and no hidden bot move or selected rate (27.537587ms)
+✖ a member cannot start a second robbery command while the first challenge is open (5.944812ms)
+✔ victim and other members cannot press, and a forged owner in the custom ID still cannot settle (7.046651ms)
+✔ owner selection reveals both moves, pays once and edits the public challenge with disabled buttons (15.196649ms)
+✔ failed theft displays a 15-minute target shield while ties display none (9.443405ms)
+✖ a protected target gets the reference reply with its remaining minutes and seconds and no currency changes (8.619924ms)
+✔ bang command resolves the mentioned member and cannot start for bots, webhook or another guild (6.964119ms)
+✔ missing, self, bot, ineligible and foreign-server targets never create a challenge (2.467912ms)
+✔ an uncertain payment leaves the public challenge intact and reports privately for recovery (3.188911ms)
+✔ failed Discord result edit does not refund or repeat the already committed transfer (9.333006ms)
+✔ all result variants fit embed limits, retain the footer brand and disable completed choices (8.341372ms)
+✔ wallet and task views disclose net robbery while activity and attendance caps stay separate (5.428246ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 147.301711
+
+✖ failing tests:
+
+test at test/robbery-commands.test.js:71:1
+✖ a member cannot start a second robbery command while the first challenge is open (5.944812ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /تم منعك من النهب لمدة 5 دقائق/. Input:
+  
+  '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/robbery-commands.test.js:79:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.',
+    expected: /تم منعك من النهب لمدة 5 دقائق/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/robbery-commands.test.js:142:1
+✖ a protected target gets the reference reply with its remaining minutes and seconds and no currency changes (8.619924ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /تم منعك من النهب لمدة 5 دقائق/. Input:
+  
+  '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/robbery-commands.test.js:159:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '❌ تم منعك من النهب بسبب السبام؛ مدة المنع الأساسية 5 دقائق. تقدر تستخدمه مجددًا <t:1789077900:R>.',
+    expected: /تم منعك من النهب لمدة 5 دقائق/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+
+original-robbery-mine.test.js.log
+✔ random game selection covers both games and commits one hidden mine and a complete bot order (3.561376ms)
+✔ every possible mine gives exactly one loser within nine alternating picks and can never tie (1.999051ms)
+✔ bot order is independent of the mine and does not skip it (0.462244ms)
+✔ safe turns persist without touching either balance and survive restart without rerolling (14.82326ms)
+✔ simultaneous different clicks from one board consume only one player/bot turn (8.259019ms)
+✔ mine win, amount 600: settles once, keeps current protection, and stages both DMs (12.260369ms)
+✔ mine loss, amount 600: settles once, keeps current protection, and stages both DMs (8.152905ms)
+✔ mine win, amount 0: settles once, keeps current protection, and stages both DMs (4.316183ms)
+✖ mine loss, amount 0: settles once, keeps current protection, and stages both DMs (2.329652ms)
+✔ ownership, room, membership, stale cells, cross-game buttons, and bad input cannot spend or advance (9.538183ms)
+✔ target protection, bank changes and resets stop ongoing mine turns without a transfer (13.182977ms)
+✔ legacy RPS rounds remain playable and mine buttons cannot select a different game (7.749197ms)
+✔ safe-turn before-write interruption preserves the original board or committed pair (3.074884ms)
+✔ safe-turn after-write interruption preserves the original board or committed pair (3.299664ms)
+✔ mine settlement recovery: reserve before (9.631615ms)
+✔ mine settlement recovery: reserve after (2.998342ms)
+✔ mine settlement recovery: debit before (2.886989ms)
+✔ mine settlement recovery: debit after (3.513816ms)
+✔ mine settlement recovery: credit before (2.944746ms)
+✔ mine settlement recovery: credit after (3.18985ms)
+✔ mine settlement recovery: result before (3.340265ms)
+✔ mine settlement recovery: result after (3.702688ms)
+✔ mine settlement recovery: clear before (4.006852ms)
+✔ mine settlement recovery: clear after (2.781876ms)
+✔ 3×3 board hides the mine, marks safe numbers with green eyes and the hit with a red bomb (5.974924ms)
+✔ mine component parser rejects malformed cells/revisions and keeps RPS IDs compatible (0.601742ms)
+✔ slash and text render the committed player and bot turns in one usable board (10.659617ms)
+✔ failed Discord edit and replay cannot repeat a safe bot turn or financial transfer (8.419312ms)
+✔ a mine result keeps the one-minute cooldown, including restart and a different target (10.067789ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 28
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 198.53901
+
+✖ failing tests:
+
+test at test/robbery-mine.test.js:99:4
+✖ mine loss, amount 0: settles once, keeps current protection, and stages both DMs (2.329652ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/src/service.js:428:95
+
+
+original-robbery-timeout.test.js.log
+✔ rps: no click loses automatically exactly at expiry, grants normal loss shield, and notifies both sides (27.629817ms)
+✔ mine: no click loses automatically exactly at expiry, grants normal loss shield, and notifies both sides (7.475279ms)
+✔ starting the mine then abandoning it loses without inventing another pick or moving the mine (5.079372ms)
+✔ a stale mine click at expiry shows only the timeout result, without a phantom bot animation (5.051708ms)
+✔ rps: a press and background expiry racing at the deadline cannot play or charge twice (2.995869ms)
+✔ mine: a press and background expiry racing at the deadline cannot play or charge twice (3.393196ms)
+✔ a move committed before the deadline keeps its result and cannot become a later timeout loss (5.1671ms)
+✖ timeout uses available balances, including an empty wallet, without counting it as a tie (1.222198ms)
+✔ bank resets, disabled robbery and moved channels cancel games instead of imposing timeout penalties (4.524931ms)
+✔ older unplayed rounds never gain a retroactive timeout penalty (3.659222ms)
+✖ the same target accepts only the first concurrent attacker, across both game types and restart (3.4776ms)
+✔ the target lock is released on settlement while normal protection remains, including for a tie (13.324346ms)
+✔ invalidated games release the target, and the old player cannot settle them later (1.367735ms)
+✔ an attacker cannot open another target to escape an overdue loss before the timer runs (2.111671ms)
+✔ buying protection mid-game cancels the blocked challenge without imposing a timeout debit (3.060585ms)
+✔ lost lease blocks expiry and cannot debit or release a target reservation (1.537715ms)
+✔ timeout journal recovery: reserve before (4.346062ms)
+✔ timeout journal recovery: reserve after (3.412642ms)
+✔ timeout journal recovery: debit before (3.304175ms)
+✔ timeout journal recovery: debit after (3.91283ms)
+✔ timeout journal recovery: credit before (3.006088ms)
+✔ timeout journal recovery: credit after (2.783131ms)
+✔ timeout journal recovery: result before (3.413805ms)
+✔ timeout journal recovery: result after (3.515654ms)
+✔ timeout journal recovery: clear before (3.209965ms)
+✔ timeout journal recovery: clear after (4.347186ms)
+✔ rps: the worker updates the original public message without a click and survives restarting (5.213155ms)
+✔ mine: the worker updates the original public message without a click and survives restarting (13.245215ms)
+✔ Discord being offline or refusing edits never postpones settlement or repeats the debit (4.57992ms)
+✔ a slow Discord edit cannot block other rounds from losing at their deadline (6.029452ms)
+✔ deleted messages are not re-sent, and an unbound sent message is recovered by its saved button IDs (7.104004ms)
+✔ a stopped worker cannot settle or edit until it resumes (3.83082ms)
+✔ slash and text commands save their reply identity for automatic timeout edits (7.696058ms)
+✔ a failed safe-turn edit recovers automatically without another click, including after restart (3.997645ms)
+✔ legacy boards stuck on the old bot preview are restored from the saved pair (5.234562ms)
+✔ mine: an unpublished game never incurs an inactivity debit (3.794999ms)
+✔ rps: an unpublished game never incurs an inactivity debit (1.15268ms)
+✔ an undelivered safe turn cancels at expiry rather than fining a player who cannot see the current board (5.156043ms)
+✔ a recovered, confirmed board still applies the normal inactivity loss exactly once (6.696437ms)
+✔ an old display acknowledgement cannot hide an unrendered newer mine turn (2.234435ms)
+✔ expiry during an in-flight old board edit leaves the final result queued for display (5.556851ms)
+✔ a deleted active message closes the challenge and releases its target without charging (2.691733ms)
+✔ old abandoned rounds cannot starve current expiry or impose retroactive debits (31.68832ms)
+✔ the uploaded timedOut result format displays honestly without inventing a mine hit (6.018501ms)
+✔ mine: a confirmed departure cancels durably and cannot become a later inactivity debit (2.045428ms)
+✔ rps: a confirmed departure cancels durably and cannot become a later inactivity debit (1.932712ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 44
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 269.371196
+
+✖ failing tests:
+
+test at test/robbery-timeout.test.js:82:1
+✖ timeout uses available balances, including an empty wallet, without counting it as a tie (1.222198ms)
+  Error: لا تقدر تبدأ نهب ورصيدك صفر أو بالسالب؛ تحتاج رصيدًا أكبر من صفر.
+      at file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/src/service.js:428:95
+
+test at test/robbery-timeout.test.js:109:1
+✖ the same target accepts only the first concurrent attacker, across both game types and restart (3.4776ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/robbery-timeout.test.js:114:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+
+original-startup.test.js.log
+✔ boot banner precedes module loading and unsupported Node fails without loading the application (6.851796ms)
+✔ an early missing module and a synchronous constructor error retain their stage and code (2.416484ms)
+✔ error details redact normalized tokens, database credentials, headers and stack locations before truncation (1.536996ms)
+✔ logger also redacts unknown database URLs and token-shaped strings and bounds circular causes (0.58549ms)
+✖ real node src/index.js reports a missing configuration variable and exits nonzero without connecting (878.703557ms)
+✖ real entry catches MongoClient constructor failures that occur before the main startup try block (1096.335213ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1997.879832
+
+✖ failing tests:
+
+test at test/startup.test.js:77:1
+✖ real node src/index.js reports a missing configuration variable and exits nonzero without connecting (878.703557ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + Error: spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node EPERM
+  +     at Object.spawnSync (node:internal/child_process:1160:20)
+  +     at spawnSync (node:child_process:928:24)
+  +     at runEntry (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:16:18)
+  +     at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:78:18)
+  +     at Test.runInAsyncScope (node:async_hooks:227:14)
+  +     at Test.run (node:internal/test_runner/test:1382:25)
+  +     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+  +     at Test.postRun (node:internal/test_runner/test:1522:19)
+  +     at Test.run (node:internal/test_runner/test:1447:12)
+  +     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+  +   code: 'EPERM',
+  +   errno: -1,
+  +   path: '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+  +   spawnargs: [
+  +     'src/index.js'
+  +   ],
+  +   syscall: 'spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node'
+  + }
+  - undefined
+  
+      at runEntry (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:18:10)
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:78:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Error],
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/startup.test.js:85:1
+✖ real entry catches MongoClient constructor failures that occur before the main startup try block (1096.335213ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + Error: spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node EPERM
+  +     at Object.spawnSync (node:internal/child_process:1160:20)
+  +     at spawnSync (node:child_process:928:24)
+  +     at runEntry (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:16:18)
+  +     at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:86:18)
+  +     at Test.runInAsyncScope (node:async_hooks:227:14)
+  +     at Test.run (node:internal/test_runner/test:1382:25)
+  +     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+  +     at Test.postRun (node:internal/test_runner/test:1522:19)
+  +     at Test.run (node:internal/test_runner/test:1447:12)
+  +     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+  +   code: 'EPERM',
+  +   errno: -1,
+  +   path: '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node',
+  +   spawnargs: [
+  +     'src/index.js'
+  +   ],
+  +   syscall: 'spawnSync /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node'
+  + }
+  - undefined
+  
+      at runEntry (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:18:10)
+      at TestContext.<anonymous> (file:///workspace/scratch/1f8b9fd35069/baseline/GAME-V44-main/test/startup.test.js:86:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Error],
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

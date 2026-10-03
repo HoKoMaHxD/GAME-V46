@@ -1,0 +1,25 @@
+✔ carrier occupies a rectangle in both orientations, placements cannot overlap or wrap (78.360545ms)
+✔ six ships and 26 cells must sink; misses and duplicate shots are handled (0.834714ms)
+✔ challenge validation, balance recheck, rejection and invitation timeout leave balances intact (15.309782ms)
+✔ independent fleet versions allow concurrent setup and freeze ships after ready (11.419446ms)
+✔ hits retain the turn, misses pass it, sixth sinking settles once without tax (21.896703ms)
+✔ setup timeout awards the sole ready player; neither ready or undelivered setup refunds (13.163907ms)
+✔ delivered battle expires once; failed delivery refunds instead of penalizing a player (17.017493ms)
+✔ restart preserves fleet, hits, turn and deadline; settings, membership and pause cancel safely (22.401483ms)
+✔ recovery after before hold failure cannot double-charge or double-pay (2.152262ms)
+✔ recovery after before payout failure cannot double-charge or double-pay (21.381981ms)
+✔ recovery after after hold failure cannot double-charge or double-pay (1.784296ms)
+✔ recovery after after payout failure cannot double-charge or double-pay (14.339684ms)
+✔ public pixels and opponent pixels do not depend on unsunk hidden positions (182.81311ms)
+✔ all states obey Discord component limits and slash, text, help and cooldown registration work (241.907906ms)
+✔ real text and private interactions arrange, rotate, select and fire without exposing private attachments (868.423808ms)
+✔ spectators, copied public controls and another owner cannot open or mutate secret panels (120.882243ms)
+✔ manager recovers a public edit failure and refunds when the original message was deleted (132.637911ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1786.142109
